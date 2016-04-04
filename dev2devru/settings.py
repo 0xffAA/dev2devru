@@ -78,10 +78,10 @@ WSGI_APPLICATION = 'dev2devru.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'HOST': '192.168.0.101',
+        'HOST': '192.168.1.151',
         'NAME': 'd2db',
-        'USER': 'd2d',
-        'PASSWORD': 'qwe123!@#',
+        'USER': 'dev',
+        'PASSWORD': '123581321',
     }
 }
 
