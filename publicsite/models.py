@@ -1,4 +1,5 @@
 from django.db import models
+from .managers import *
 
 
 class Event(models.Model):
@@ -6,6 +7,8 @@ class Event(models.Model):
     description = models.CharField(max_length=500)
     date = models.DateField()
     public_name = models.SlugField(max_length=20, null=False)
+
+    objects = EventManager()
 
 
 class Section(models.Model):
