@@ -18,3 +18,7 @@ def query_current_event():
         event = _get_first_or_none(Event.objects.order_by('-date').filter(date__date__lt=current_date))
 
     return event
+
+
+def query_by_name(name):
+    return _get_first_or_none(Event.objects.filter(public_name=name))
