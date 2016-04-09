@@ -1,3 +1,5 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def view_event(request, event_name=None):
+    return render(request, 'view_event.html', None)
