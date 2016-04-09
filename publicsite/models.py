@@ -5,6 +5,7 @@ class Event(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=500)
     date = models.DateField()
+    public_name = models.SlugField(max_length=20, null=False)
 
 
 class Section(models.Model):
