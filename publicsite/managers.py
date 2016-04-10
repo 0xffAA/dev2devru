@@ -2,6 +2,10 @@ from django.db import models
 import datetime
 
 
+def _get_current_date():
+    return datetime.datetime.utcnow().date()
+
+
 def _get_first_or_none(qs):
     query_result = list(qs[:1])
     if query_result:
@@ -11,14 +15,14 @@ def _get_first_or_none(qs):
 
 
 class EventManager(models.Manager):
+    def _get_timeline(self, reverse=False):
+        return self.order_by('-date' if reverse else 'date')
+
     def get_current(self):
-        current_date = datetime.datetime.utcnow().date()
+        return _get_first_or_none(self._get_timeline().filter(date__gte=_get_current_date()))
 
-        event = _get_first_or_none(self.get_query_set().order_by('date').filter(date__date__qt=current_date))
-        if not event:
-            event = _get_first_or_none(self.get_query_set().order_by('-date').filter(date__date__lt=current_date))
+    def get_by_name(self, name):
+        _get_first_or_none(self.filter(public_name=name))
 
-        return event
-
-    def by_name(self, name):
-        _get_first_or_none(self.get_query_set().filter(public_name=name))
+    def get_history(self):
+        return self._get_timeline().filter(date__lt=_get_current_date())
