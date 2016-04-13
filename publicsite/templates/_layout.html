@@ -5,8 +5,40 @@
     <title>{% block title %} Dev2Dev {% endblock %}</title>
 </head>
 <body>
-    <header>header</header>
+    <header>
+        <div>
+            <a><img alt="logo"/></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'main' %}">Текущие событие</a></li>
+                <li><a href="{% url 'history' %}">Прошедшие события</a></li>
+                <li><a href="{% url 'about' %}">Dev2Dev</a></li>
+                <li><a href="{% url 'contribute' %}">Мне не все равно</a></li>
+            </ul>
+        </nav>
+    </header>
     {% block content %} {% endblock %}
-    <footer>footer</footer>
+    <footer>
+        <div>
+            <a><img alt="logo"/></a>
+        </div>
+        <div>
+            <ul>
+                <li><a><img alt="YouTube"/></a></li>
+                <li><a><img alt="VK"/></a></li>
+                <li><a><img alt="G+"/></a></li>
+                <li><a><img alt="Email"/></a></li>
+            </ul>
+        </div>
+        <div>
+            <h3>Контакты</h3>
+            <ul>
+                <li>+79135694913 Акуляков Артём</li>
+                <li>+79082068544 Волков Алексей</li>
+                <li>dev2dev.conf@gmail.com</li>
+            </ul>
+        </div>
+    </footer>
 </body>
 </html>
