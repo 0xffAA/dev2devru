@@ -1,0 +1,21 @@
+<ul>
+{% for point in sorted(points, key=lambda p: p.start)%}
+    <li>
+        <div>
+            {{ point.start }} - {{ point.start + point.duration }}<h3>{{ point.title }}</h3>
+        </div>
+        <div>
+        {% for author in point.authors %}
+            <div>
+                <div> {{ author.name }} </div>
+                <div> {{ author.company }} </div>
+                <div> {{ author.position }} </div>
+            </div>
+        {% endfor %}
+        </div>
+        <div>
+            {{ point.description }}
+        </div>
+    </li>
+{% endfor %}
+</ul>

@@ -1,5 +1,27 @@
 {% extends '_layout.html' %}
 
-{% block title %} Dev2Dev {% endblock %}
+{% block title %} {{ event.name }} {% endblock %}
 
-{% block content %}{% endblock %}
+{% block content %}
+
+<div>
+    <h1>{{ event.name }}</h1>
+    <p>{{ event.description }}</p>
+</div>
+<div>
+    <a href="{% url 'contribute' %}">Хочу помочь сообществу</a>
+    <a>Хочу пойти</a>
+</div>
+<div>
+{% for section in event.sections %}
+    <div>
+        <h2>{{ section.name }}</h2>
+        <p>{{ section.description }}</p>
+        {% include '__render_points.html' with points=section.points %}
+    </div>
+{% empty %}
+    {% include '__render_points.html' with points=event.points %}
+{% endfor %}
+</div>
+
+{% endblock %}
