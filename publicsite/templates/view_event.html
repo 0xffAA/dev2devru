@@ -17,10 +17,10 @@
     <div>
         <h2>{{ section.name }}</h2>
         <p>{{ section.description }}</p>
-        {% include '__render_points.html' with points=section.points %}
+        {% include 'includes/points_list.html' with points=section.points only %}
     </div>
 {% empty %}
-    {% include '__render_points.html' with points=event.points %}
+    {% include 'includes/points_list.html' with points=event.points only %}
 {% endfor %}
 </div>
 
