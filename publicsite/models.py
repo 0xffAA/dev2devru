@@ -13,7 +13,6 @@ class Event(models.Model):
 
 class Section(models.Model):
     name = models.CharField(max_length=100)
-    description = models.CharField(max_length=500)
     event = models.ForeignKey(
         Event,
         on_delete=models.CASCADE,
@@ -44,6 +43,9 @@ class Point(models.Model):
         on_delete=models.CASCADE,
         related_name='points'
     )
+
+    class Meta:
+        ordering = ['start']
 
 
 class Materials(models.Model):
