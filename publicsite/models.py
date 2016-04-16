@@ -2,11 +2,23 @@ from django.db import models
 from .managers import *
 
 
+class Place(models.Model):
+    name = models.CharField(max_length=100)
+    address = models.CharField(max_length=200)
+    latitude = models.FloatField()
+    longitude = models.FloatField()
+
+
 class Event(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=500)
     date = models.DateField()
     public_name = models.SlugField(max_length=20, null=False)
+    place = models.ForeignKey(
+        Place,
+        related_name='events',
+        on_delete=models.CASCADE,
+    )
 
     objects = EventManager()
 
