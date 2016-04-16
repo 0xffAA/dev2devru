@@ -10,12 +10,12 @@
             <a><img alt="logo"/></a>
         </div>
         <nav>
-            <div>
-                <div><a href="{% url 'main' %}">Текущие событие</a></div>
-                <div><a href="{% url 'history' %}">Прошедшие события</a></div>
-                <div><a href="{% url 'about' %}">Dev2Dev</a></div>
-                <div><a href="{% url 'contribute' %}">Мне не все равно</a></div>
-            </div>
+            <ul>
+                <li><a href="{% url 'main' %}">Текущие событие</a></li>
+                <li><a href="{% url 'history' %}">Прошедшие события</a></li>
+                <li><a href="{% url 'about' %}">Dev2Dev</a></li>
+                <li><a href="{% url 'contribute' %}">Мне не все равно</a></li>
+            </ul>
         </nav>
     </header>
     {% block content %} {% endblock %}
@@ -24,20 +24,20 @@
             <a><img alt="logo"/></a>
         </div>
         <div>
-            <div>
-                <div><a><img alt="YouTube"/></a></div>
-                <div><a><img alt="VK"/></a></div>
-                <div><a><img alt="G+"/></a></div>
-                <div><a><img alt="Email"/></a></div>
-            </div>
+            <ul>
+                <li><a><img alt="YouTube"/></a></li>
+                <li><a><img alt="VK"/></a></li>
+                <li><a><img alt="G+"/></a></li>
+                <li><a><img alt="Email"/></a></li>
+            </ul>
         </div>
         <div>
             <h3>Контакты</h3>
-            <div>
-                <div>+79135694913 Акуляков Артём</div>
-                <div>+79082068544 Волков Алексей</div>
-                <div>dev2dev.conf@gmail.com</div>
-            </div>
+            <ul>
+                <li>+79135694913 Акуляков Артём</li>
+                <li>+79082068544 Волков Алексей</li>
+                <li>dev2dev.conf@gmail.com</li>
+            </ul>
         </div>
     </footer>
 </body>
