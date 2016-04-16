@@ -16,6 +16,16 @@
         <div>
             {{ point.description }}
         </div>
+        {% if point.materials %}
+        <div>
+            <h3>материалы</h3>
+            <ul>
+                <li><a href="{{ point.materials.slides }}">слайды</a></li>
+                <li><a href="{{ point.materials.video }}">видео</a></li>
+                <li><a href="{{ point.materials.sources }}">код</a></li>
+            </ul>
+        </div>
+        {% endif %}
     </li>
 {% endfor %}
 </ul>
