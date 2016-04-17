@@ -22,7 +22,7 @@ class EventManager(models.Manager):
         return _get_first_or_none(self._get_timeline().filter(date__gte=_get_current_date()))
 
     def get_by_name(self, name):
-        _get_first_or_none(self.filter(public_name=name))
+        return _get_first_or_none(self.filter(public_name=name))
 
     def get_history(self):
         return self._get_timeline().filter(date__lt=_get_current_date())
