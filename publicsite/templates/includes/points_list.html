@@ -2,7 +2,7 @@
 {% for point in points %}
     <div>
         <div>
-            {{ point.start }} - {{ point.start }}<h3>{{ point.title }}</h3>
+            {{ point.start|time:"H:i" }} - {{ point.end|time:"H:i" }}<h3>{{ point.title }}</h3>
         </div>
         <div>
         {% for author in point.authors %}
