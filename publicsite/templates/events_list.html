@@ -1,10 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends '_layout.html' %}
 
-</body>
-</html>
+{% block title %} События D2D {% endblock %}
+
+{% block content %}
+<div>
+{% for event in events %}
+    <div>
+        {{ event.date|date:'d.m' }} {{ event.name }}
+    </div>
+{% endfor %}
+</div>
+{% endblock %}

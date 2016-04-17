@@ -31,7 +31,12 @@ def view_event(request, event_name=None):
 
 
 def events_history(request):
-    pass
+    events = Event.objects.get_history()
+    return render(
+        request,
+        'events_list.html',
+        {'events': events}
+    )
 
 
 def about(request):
