@@ -35,3 +35,4 @@ class EventVM:
             self.points = [p for p in [s.points for s in self.sections]]
         else:
             self.points = _read_full_points(event.points)
+        self.place = event.place
