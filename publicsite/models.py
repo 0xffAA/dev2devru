@@ -69,3 +69,15 @@ class Materials(models.Model):
         on_delete=models.CASCADE,
         related_name='materials'
     )
+
+
+class Visitor(models.Model):
+    name = models.CharField(max_length=100)
+    position = models.CharField(max_length=100)
+    company = models.CharField(max_length=100)
+    email = models.EmailField(db_index=True)
+    event = models.ForeignKey(
+        Event,
+        on_delete=models.CASCADE,
+        related_name='visitors'
+    )
