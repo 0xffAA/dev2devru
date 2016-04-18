@@ -32,6 +32,15 @@
             map was here
         </div>
     </div>
+{% if form %}
+    <div>
+        <h3>Зарегистрироваться</h3>
+        <form>
+            {% csrf_token %}
+            {{ form.as_p }}
+        </form>
+    </div>
+{% endif %}
 </div>
 
 {% endblock %}

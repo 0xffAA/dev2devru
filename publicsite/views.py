@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import Http404
-from .models import Event
+
+from .models import Event, Visitor
+from .forms import NewVisitorForm
 from .view_models import EventVM
 
 
@@ -10,7 +12,7 @@ def current_event(request):
         return render(
             request,
             'view_event.html',
-            {'event': EventVM(event)}
+            {'event': EventVM(event), 'form': NewVisitorForm(initial={'event': event})}
         )
     else:
         return render(
