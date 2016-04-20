@@ -8,6 +8,10 @@
     <div>
         {{ event.date|date:'d.m' }} {{ event.name }}
     </div>
+{% empty %}
+    <div>
+        кажется мы что-то не можем припомнить...
+    </div>
 {% endfor %}
 </div>
 {% endblock %}
