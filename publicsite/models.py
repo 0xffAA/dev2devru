@@ -73,8 +73,8 @@ class Materials(models.Model):
 
 class Visitor(models.Model):
     name = models.CharField(max_length=100)
-    position = models.CharField(max_length=100)
-    company = models.CharField(max_length=100)
+    position = models.CharField(max_length=100, null=True)
+    company = models.CharField(max_length=100, null=True)
     email = models.EmailField(db_index=True)
     event = models.ForeignKey(
         Event,
