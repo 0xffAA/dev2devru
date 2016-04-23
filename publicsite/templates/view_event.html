@@ -23,24 +23,20 @@
 {% empty %}
     {% include 'includes/points_list.html' with points=event.points only %}
 {% endfor %}
-    <div>
-        <h3>{{ event.place.name }}</h3>
-        <p>{{ event.place.address }}</p>
-        <div
-                data-latitude="{{ event.place.latitude }}"
-                data-longitude="{{ event.place.longitude }}">
-            map was here
-        </div>
-    </div>
-{% if form %}
-    <div>
-        <h3>Зарегистрироваться</h3>
-        <form>
-            {% csrf_token %}
-            {{ form.as_p }}
-        </form>
-    </div>
-{% endif %}
 </div>
+<div>
+    <h3>{{ event.place.name }}</h3>
+    <p>{{ event.place.address }}</p>
+    <div
+            data-latitude="{{ event.place.latitude }}"
+            data-longitude="{{ event.place.longitude }}">
+        map was here
+    </div>
+</div>
+{% if form %}
+<div>
+    {% include 'includes/new_visiter_form.html' with form=form %}
+</div>
+{% endif %}
 
 {% endblock %}

@@ -1,0 +1,25 @@
+<div>
+    <h3>Зарегистрироваться</h3>
+    <form action="foo" method="post">
+        {% csrf_token %}
+        {{ form.event }}
+        {% comment %}
+            TODO: need error showing or indication
+        {% endcomment %}
+        <div>
+            {{ form.email }}
+        </div>
+        <div>
+            <div>
+                {{ form.name }}
+            </div>
+            <div>
+                {{ form.position }}
+            </div>
+            <div>
+                {{ form.company }}
+            </div>
+        </div>
+        <input type="submit" value="go"/>
+    </form>
+</div>
