@@ -1,7 +1,9 @@
-from django.shortcuts import render
+from django.views.decorators.csrf import csrf_protect
+from django.shortcuts import render, redirect
 from django.http import Http404
+from django.core.urlresolvers import reverse
 
-from .models import Event, Visitor
+from .models import Event
 from .forms import NewVisitorForm
 from .view_models import EventVM
 
@@ -19,6 +21,26 @@ def current_event(request):
             request,
             'empty_event.html'
         )
+
+
+@csrf_protect
+def register_new_visiter(request):
+    if request.method == 'Post':
+        form = NewVisitorForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(
+                request,
+                'thanks_for_registration.html'
+            )
+        else:
+            return render(
+                request,
+                'register_new_visitor.html',
+                {'form': form}
+            )
+    else:
+        return redirect(reverse('main'))
 
 
 def view_event(request, event_name=None):
