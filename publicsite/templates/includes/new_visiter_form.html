@@ -1,6 +1,6 @@
 <div>
     <h3>Зарегистрироваться</h3>
-    <form action="foo" method="post">
+    <form action="{% url 'registration' %}" method="post">
         {% csrf_token %}
         {{ form.event }}
         {% comment %}
