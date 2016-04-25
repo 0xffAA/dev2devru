@@ -7,6 +7,14 @@ class NewVisitorForm(forms.ModelForm):
         queryset=Event.objects.all(),
         widget=forms.HiddenInput()
     )
+    position = forms.CharField(
+        required=False,
+        widget=forms.TextInput(attrs={'placeholder': 'работаешь кем?'})
+    )
+    company = forms.CharField(
+        required=False,
+        widget=forms.TextInput(attrs={'placeholder': 'работаешь где?'})
+    )
 
     class Meta:
         model = Visitor
@@ -14,6 +22,4 @@ class NewVisitorForm(forms.ModelForm):
         widgets = {
             'email': forms.EmailInput(attrs={'placeholder': 'em@il'}),
             'name': forms.TextInput(attrs={'placeholder': 'имя'}),
-            'position': forms.TextInput(attrs={'placeholder': 'работаешь кем?'}),
-            'company': forms.TextInput(attrs={'placeholder': 'работаешь где?'}),
         }
