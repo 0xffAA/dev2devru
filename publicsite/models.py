@@ -8,6 +8,9 @@ class Place(models.Model):
     latitude = models.FloatField()
     longitude = models.FloatField()
 
+    def __str__(self):
+        return "{0} [{1}]".format(self.name, self.address)
+
 
 class Event(models.Model):
     name = models.CharField(max_length=100)
@@ -22,6 +25,9 @@ class Event(models.Model):
 
     objects = EventManager()
 
+    def __str__(self):
+        return "{0} [{1}]".format(self.name, self.date)
+
 
 class Section(models.Model):
     name = models.CharField(max_length=100)
@@ -31,11 +37,17 @@ class Section(models.Model):
         related_name='sections'
     )
 
+    def __str__(self):
+        return self.name
+
 
 class Author(models.Model):
     name = models.CharField(max_length=100)
     company = models.CharField(max_length=100)
     position = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
 
 
 class Point(models.Model):
@@ -56,6 +68,9 @@ class Point(models.Model):
         related_name='points'
     )
 
+    def __str__(self):
+        return "{0} [{1}~{2}]".format(self.title, self.start, self.duration)
+
     class Meta:
         ordering = ['start']
 
@@ -70,6 +85,9 @@ class Materials(models.Model):
         related_name='materials'
     )
 
+    def __str__(self):
+        return "{0} {1} {2}".format(self.slides, self.video, self.sources)
+
 
 class Visitor(models.Model):
     name = models.CharField(max_length=100)
@@ -81,3 +99,6 @@ class Visitor(models.Model):
         on_delete=models.CASCADE,
         related_name='visitors'
     )
+
+    def __str__(self):
+        return "{0} [{1}]".format(self.name, self.email)
