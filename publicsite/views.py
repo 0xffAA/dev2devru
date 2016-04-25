@@ -24,7 +24,7 @@ def current_event(request):
 
 
 @csrf_protect
-def register_new_visiter(request):
+def register_new_visitor(request):
     if request.method == 'Post':
         form = NewVisitorForm(request.POST)
         if form.is_valid():
