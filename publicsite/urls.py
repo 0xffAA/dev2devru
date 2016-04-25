@@ -5,7 +5,7 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.current_event, name='main'),
-    url(r'^registration/$', views.register_new_visoter, name='registration'),
+    url(r'^registration/$', views.register_new_visitor, name='registration'),
     url(r'^event/(?P<event_name>[\w\-_]*)$', views.view_event, name='event_name'),
     url(r'^history$', views.events_history, name='history'),
     url(r'^about$', views.about, name='about'),
