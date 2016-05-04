@@ -1,0 +1,37 @@
+@import base
+@import typography
+@import utils
+
+
+body
+    +clear-indents()
+
+
+header
+    position: fixed
+    right: 0
+    left: 0
+    top: 0
+
+
+.header-content
+    width: $min-supported-width
+    +centered-horizontal()
+
+    div
+        display: inline-block
+
+    nav
+        display: inline-block
+        ul
+            +clear-indents()
+            list-style-type: none
+
+        li
+            display: inline-block
+
+
+footer
+    width: 100%
+
+

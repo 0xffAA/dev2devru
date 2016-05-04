@@ -1,0 +1,11 @@
+$text-font: Arial, Helvetica, sans-serif
+$header-font: Impact, Arial, sans-serif
+
+@for $i from 1 through 6
+    h#{7 - $i}
+        font: $header-font
+        font-size: 16pt + ($i * 2pt);
+
+body
+    font-family: $text-font
+    font-size: 14pt
