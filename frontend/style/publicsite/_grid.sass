@@ -1,0 +1,25 @@
+=grid-container()
+	position: relative
+	width: 100%
+	margin: 0 auto
+	padding: 2%
+	box-sizing: border-box
+
+	&:after
+	    display: table
+	    clear: both
+
+=grid-row()
+    width: 100%
+    margin: 0
+    padding: 0
+
+    &:after
+        display: table
+        clear: both
+
+=grid-position($size, $offset: 0)
+	width: 8% * $size
+	float: left
+	box-sizing: border-box
+	margin-left: 8% * $offset
