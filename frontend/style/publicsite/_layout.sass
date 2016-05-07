@@ -1,11 +1,21 @@
 @import base
 @import typography
 @import utils
+@import grid
 
+
+/* shared */
+
+=service-content-block()
+    width: $min-supported-width
+    +centered-horizontal()
+
+/* common */
 
 body
     +clear-indents()
 
+/* header */
 
 header
     position: fixed
@@ -15,11 +25,13 @@ header
 
 
 .header-content
-    width: $min-supported-width
-    +centered-horizontal()
+    +service-content-block()
+    height: 60px
+    padding-top: 20px
 
-    div
+    div.header-logo-block
         display: inline-block
+        margin-right: 20px
 
     nav
         display: inline-block
@@ -29,9 +41,46 @@ header
 
         li
             display: inline-block
+            margin: 0 10px
+            font-size: 1.7em
 
+div.content-block
+    padding-top: 80px
+    width: 100%
+
+/* footer */
 
 footer
     width: 100%
+    height: 200px
 
 
+.footer-content
+    +service-content-block()
+
+
+.footer-grid-wrapper
+    +grid-container()
+
+
+div.footer-logo-block
+    +grid-position(2)
+
+
+div.footer-social-icons-block
+    +grid-position(5)
+
+
+div.footer-contacts-block
+    +grid-position(5)
+
+
+ul.footer-social-icons-list
+    list-style-type: none
+
+    li
+        display: inline-block
+
+
+ul.footer-contacts-list
+    list-style-type: none

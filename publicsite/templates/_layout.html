@@ -1,6 +1,5 @@
-{% load staticfiles %}
-
 <!DOCTYPE html>
+{% load staticfiles %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,39 +8,45 @@
 <body>
     <header>
         <div class="header-content">
-            <div>
+            <div class="header-logo-block">
                 <a><img alt="logo"/></a>
             </div>
             <nav>
                 <ul>
                     <li><a href="{% url 'main' %}">Сейчас</a></li>
-                    <li><a href="{% url 'history' %}">Прошли</a></li>
+                    <li><a href="{% url 'history' %}">Прошло</a></li>
                     <li><a href="{% url 'about' %}">Dev2Dev</a></li>
-                    <li><a href="{% url 'contribute' %}">Поспособствовать</a></li>
+                    <li><a href="{% url 'contribute' %}">Contribute</a></li>
                 </ul>
             </nav>
         </div>
     </header>
+    <div class="content-block">
     {% block content %} {% endblock %}
+    </div>
     <footer>
-        <div>
-            <a><img alt="logo"/></a>
-        </div>
-        <div>
-            <ul>
-                <li><a><img alt="YouTube"/></a></li>
-                <li><a><img alt="VK"/></a></li>
-                <li><a><img alt="G+"/></a></li>
-                <li><a><img alt="Email"/></a></li>
-            </ul>
-        </div>
-        <div>
-            <h3>Контакты</h3>
-            <ul>
-                <li>+79135694913 Акуляков Артём</li>
-                <li>+79082068544 Волков Алексей</li>
-                <li>dev2dev.conf@gmail.com</li>
-            </ul>
+        <div class="footer-content">
+            <div class="footer-grid-wrapper">
+                <div class="footer-logo-block">
+                    <a><img alt="logo"/></a>
+                </div>
+                <div class="footer-contacts-block">
+                    <h3>Контакты</h3>
+                    <ul class="footer-contacts-list">
+                        <li>+79135694913 Акуляков Артём</li>
+                        <li>+79082068544 Волков Алексей</li>
+                        <li>dev2dev.conf@gmail.com</li>
+                    </ul>
+                </div>
+                <div class="footer-social-icons-block">
+                    <ul class="footer-social-icons-list">
+                        <li><a><img alt="YouTube"/></a></li>
+                        <li><a><img alt="VK"/></a></li>
+                        <li><a><img alt="G+"/></a></li>
+                        <li><a><img alt="Email"/></a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </footer>
 </body>
