@@ -56,6 +56,7 @@ footer
 
 
 .footer-content
+    padding-top: 1em
     +service-content-block()
 
 
@@ -64,23 +65,22 @@ footer
 
 
 div.footer-logo-block
-    +grid-position(2)
+    +grid-position(3)
 
 
 div.footer-social-icons-block
-    +grid-position(5)
+    +grid-position(3)
 
 
 div.footer-contacts-block
-    +grid-position(5)
+    +grid-position(6)
 
 
 ul.footer-social-icons-list
     list-style-type: none
-
-    li
-        display: inline-block
+    +clear-indents()
 
 
 ul.footer-contacts-list
     list-style-type: none
+    +clear-indents()

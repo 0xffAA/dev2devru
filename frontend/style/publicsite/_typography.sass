@@ -4,8 +4,9 @@ $base-font-size: 10pt
 
 @for $i from 1 through 6
     h#{7 - $i}
-        font: $header-font
+        font-family: $header-font
         font-size: $base-font-size + ($i * 2pt);
+        margin: 0 0 1em 0
 
 body
     font-family: $text-font
