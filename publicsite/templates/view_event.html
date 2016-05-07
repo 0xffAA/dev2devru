@@ -4,10 +4,23 @@
 
 {% block content %}
 
-<div>
-    <h1>{{ event.name }}</h1>
-    <div>{{ event.date|date:"d.m, l" }}</div>
-    <p>{{ event.description }}</p>
+<div class="view-ev-event-block">
+    <div class="view-ev-event-title-block">
+        <h1>{{ event.name }}</h1>
+    </div>
+    <div class="view-ev-event-summary-block">
+        <div class="view-ev-event-summary-wrapper">
+            <div class="view-ev-event-place-block">
+                <span>{{ event.place.name }}</span>
+            </div>
+            <div class="view-ev-event-date-block">
+                <span>{{ event.date|date:"d.m, l" }}</span>
+            </div>
+        </div>
+    </div>
+    <div class="view-ev-event-info-block">
+        <p>{{ event.description }}</p>
+    </div>
 </div>
 <div>
     <a href="{% url 'contribute' %}">Хочу помочь сообществу</a>
