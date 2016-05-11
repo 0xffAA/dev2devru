@@ -20,9 +20,9 @@
         <p>{{ event.description }}</p>
     </div>
 </div>
-<div>
-    <a href="{% url 'contribute' %}">Хочу помочь сообществу</a>
-    <a>Хочу пойти</a>
+<div class="view-ev-actions-block">
+    <a class="view-ev-contribute-button" href="{% url 'contribute' %}">Хочу помочь сообществу</a>
+    <a class="view-ev-registration-button">Хочу пойти</a>
 </div>
 <div>
 {% for section in event.sections %}
