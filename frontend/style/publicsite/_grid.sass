@@ -1,7 +1,7 @@
-=grid-container()
+=grid-container($width: 100%, $centered: false)
 	position: relative
-	width: 100%
-	margin: 0
+	width: $width
+	margin: if($centered,0 auto, 0)
 	padding: 2%
 	box-sizing: border-box
 
