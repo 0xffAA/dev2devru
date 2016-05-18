@@ -24,13 +24,13 @@
     <a class="view-ev-contribute-button" href="{% url 'contribute' %}">Хочу помочь сообществу</a>
     <a class="view-ev-registration-button">Хочу пойти</a>
 </div>
-<div>
+<div class="view-ev-schedule">
 {% for section in event.sections %}
-    <div>
+    <div class="view-ev-schedule-header">
         <h2>{{ section.name }}</h2>
         <p>{{ section.description }}</p>
-        {% include 'includes/points_list.html' with points=section.points only %}
     </div>
+    {% include 'includes/points_list.html' with points=section.points only %}
 {% empty %}
     {% include 'includes/points_list.html' with points=event.points only %}
 {% endfor %}

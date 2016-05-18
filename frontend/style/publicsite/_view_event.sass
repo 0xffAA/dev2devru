@@ -28,14 +28,27 @@
 
 .view-ev-actions-block
     +grid-container($width:$min-supported-width, $centered: true)
+    min-height: 200px
 
 
 =view-ev-action-button($offset)
     +grid-position(4, $offset)
     padding: 1em
 
+
 .view-ev-contribute-button
     +view-ev-action-button(1)
 
+
 .view-ev-registration-button
     +view-ev-action-button(2)
+
+/* schedule */
+
+.view-ev-schedule
+    +centr-colomn-block()
+
+
+.view-ev-schedule-header
+    margin-bottom: 1em;
+
