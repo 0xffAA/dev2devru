@@ -1,31 +1,20 @@
-<div>
+<div class="points-list-block">
 {% for point in points %}
-    <div>
-        <div>
-            {{ point.start|time:"H:i" }} - {{ point.end|time:"H:i" }}<h3>{{ point.title }}</h3>
+    <div class="points-list-point">
+        <div class="points-list-times">
+            {{ point.start|time:"H:i" }} - {{ point.end|time:"H:i" }}
         </div>
-        <div>
+        <div class="points-list-title">
+            {{ point.title }}
+        </div>
+        <div class="points-list-authors">
         {% for author in point.authors %}
             <div>
                 <div> {{ author.name }} </div>
                 <div> {{ author.company }} </div>
-                <div> {{ author.position }} </div>
             </div>
         {% endfor %}
         </div>
-        <div>
-            {{ point.description }}
-        </div>
-        {% if point.materials %}
-        <div>
-            <h3>материалы</h3>
-            <ul>
-                <li><a href="{{ point.materials.slides }}">слайды</a></li>
-                <li><a href="{{ point.materials.video }}">видео</a></li>
-                <li><a href="{{ point.materials.sources }}">код</a></li>
-            </ul>
-        </div>
-        {% endif %}
     </div>
 {% endfor %}
 </div>
