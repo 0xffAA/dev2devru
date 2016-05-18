@@ -1,27 +1,29 @@
+=clear-fix()
+	display: table
+	clear: both
+
+=clear-self()
+    &:after
+        content: " "
+        +clear-fix()
+
 =grid-container($width: 100%, $centered: false)
 	position: relative
 	width: $width
 	margin: if($centered,0 auto, 0)
-	padding: 2%
 	box-sizing: border-box
-
-	&:after
-	    display: table
-	    clear: both
+	+clear-self()
 
 
 =grid-row()
     width: 100%
     margin: 0
     padding: 0
-
-    &:after
-        display: table
-        clear: both
+    +clear-self()
 
 
-=grid-position($size, $offset: 0)
-	width: 8% * $size
+=grid-position($size, $offset: 0, $columns: 12)
+	width: 100% / $columns * $size
 	float: left
 	box-sizing: border-box
 	margin-left: 8% * $offset
