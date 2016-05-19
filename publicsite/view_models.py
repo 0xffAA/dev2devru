@@ -1,8 +1,8 @@
 from datetime import datetime
 
 
-def _read_full_points(points):
-    return [PointVM(p) for p in points.select_related().prefetch_related('materials').all()]
+def _read_points(points):
+    return [PointVM(p) for p in points.select_related().all()]
 
 
 class PointVM:
@@ -20,7 +20,7 @@ class PointVM:
 class SectionVM:
     def __init__(self, section):
         self.name = section.name
-        self.points = _read_full_points(section.points)
+        self.points = _read_points(section.points)
 
 
 class EventVM:
@@ -34,5 +34,5 @@ class EventVM:
         if self.sections and len(self.sections):
             self.points = [p for p in [s.points for s in self.sections]]
         else:
-            self.points = _read_full_points(event.points)
+            self.points = _read_points(event.points)
         self.place = event.place
