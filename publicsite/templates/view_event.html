@@ -35,12 +35,15 @@
     {% include 'includes/points_list.html' with points=event.points only %}
 {% endfor %}
 </div>
-<div>
-    <h3>{{ event.place.name }}</h3>
-    <p>{{ event.place.address }}</p>
-    <div
-            data-latitude="{{ event.place.latitude }}"
-            data-longitude="{{ event.place.longitude }}">
+<div class="view-ev-map-block">
+    <div class="view-ev-map-info-block">
+        <h3>{{ event.place.name }}</h3>
+        <span>{{ event.place.address }}</span> |
+        <span>{{ event.date|date:"d.m, l" }}</span>
+    </div>
+    <div class="view-ev-map-ycontainer"
+         data-latitude="{{ event.place.latitude }}"
+         data-longitude="{{ event.place.longitude }}">
         map was here
     </div>
 </div>
