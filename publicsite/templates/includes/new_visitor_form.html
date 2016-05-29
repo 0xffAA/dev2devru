@@ -1,5 +1,4 @@
-<div>
-    <h3>Зарегистрироваться</h3>
+<div class="visitor-form-block">
     <form action="{% url 'registration' %}" method="post">
         {% csrf_token %}
         {{ form.event }}
@@ -19,7 +18,7 @@
             <div>
                 {{ form.company }}
             </div>
-            <input type="submit" value="go"/>
+            <input type="submit" value="регистрация"/>
         </div>
     </form>
 </div>
