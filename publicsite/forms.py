@@ -8,18 +8,12 @@ class NewVisitorForm(forms.ModelForm):
         widget=forms.HiddenInput()
     )
     position = forms.CharField(
-        required=False,
-        widget=forms.TextInput(attrs={'placeholder': 'работаешь кем?'})
+        required=False
     )
     company = forms.CharField(
-        required=False,
-        widget=forms.TextInput(attrs={'placeholder': 'работаешь где?'})
+        required=False
     )
 
     class Meta:
         model = Visitor
         fields = '__all__'
-        widgets = {
-            'email': forms.EmailInput(attrs={'placeholder': 'em@il'}),
-            'name': forms.TextInput(attrs={'placeholder': 'имя'}),
-        }
