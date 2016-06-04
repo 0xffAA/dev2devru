@@ -1,13 +1,44 @@
-$text-font: Arial, Helvetica, sans-serif
-$header-font: Impact, Arial, sans-serif
+/* font include */
+
+@font-face
+    font-family: Ubuntu
+    src: url('/static/Ubuntu-L.ttf') format('truetype')
+    font-weight: light
+    font-style: normal
+
+
+@font-face
+    font-family: Ubuntu
+    src: url('/static/Ubuntu-R.ttf') format('truetype')
+    font-weight: regular
+    font-style: normal
+
+
+@font-face
+    font-family: Ubuntu
+    src: url('/static/Ubuntu-M.ttf') format('truetype')
+    font-weight: medium
+    font-style: normal
+
+
+@font-face
+    font-family: Ubuntu
+    src: url('/static/Ubuntu-B.ttf') format('truetype')
+    font-weight: bold
+    font-style: normal
+
+/* variables and mixins */
+
+$font: Ubuntu, Helvetica, Arial, sans-serif
 $base-font-size: 14pt
 
-@for $i from 1 through 6
-    h#{7 - $i}
-        font-family: $header-font
-        font-size: $base-font-size + ($i * 2pt);
-        margin: 1em 0
+=font($weight, $size, $color)
+    font-family: $font
+    font-weight: $weight
+    font-size: $size
+    font-color: $color
+
+/* base rules */
 
 body
-    font-family: $text-font
-    font-size: $base-font-size
+    font-family: $font

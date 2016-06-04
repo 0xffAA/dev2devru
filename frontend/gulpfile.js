@@ -9,6 +9,15 @@ gulp.task('sass', function () {
         .pipe(gulp.dest('../publicsite/static/'));
 });
 
+gulp.task('font', function () {
+    return gulp.src('./font/*')
+        .pipe(gulp.dest('../publicsite/static/'));
+});
+
+gulp.task('publicsite', function () {
+    return gulp.run('font', 'sass');
+});
+
 gulp.task('watch', function() {
     gulp.watch('./style/publicsite/*.sass', ['sass']);
 });
