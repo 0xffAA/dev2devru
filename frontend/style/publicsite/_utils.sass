@@ -2,9 +2,24 @@
     margin: 0
     padding: 0
 
+
 =centered-horizontal()
     margin: auto
+
 
 =centr-colomn-block($width: $min-supported-width)
     width: $width
     +centered-horizontal()
+
+
+=coloring($back, $front)
+    background-color: $back
+    color: $front
+
+
+=magento-colored()
+    +coloring($color-magenta, $color-white)
+
+
+=blue-colored()
+    +coloring($color-blue, $color-white)
