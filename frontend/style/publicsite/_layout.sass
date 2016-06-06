@@ -3,11 +3,14 @@
 body
     +clear-indents()
 
+$header-height: 60px
+
 /* header */
 
 header
     +blue-colored()
     position: fixed
+    height: $header-height
     right: 0
     left: 0
     top: 0
@@ -15,7 +18,6 @@ header
 
 .header-content
     +centr-colomn-block()
-    height: 60px
     padding-top: 20px
 
     div.header-logo-block
@@ -36,7 +38,7 @@ header
 /* content */
 
 div.content-block
-    padding-top: 80px
+    padding-top: $header-height
     width: 100%
 
 /* footer */
