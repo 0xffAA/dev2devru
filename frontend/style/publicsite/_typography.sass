@@ -39,6 +39,18 @@ $base-font-size: 14pt
     font-size: $size
     color: $color
 
+
+=header-font($color: inherit)
+    +font(medium, 36, $color)
+
+
+=subheader-font($color: inherit)
+    +font(regular, 24, $color)
+
+
+=text-font($color: inherit)
+    +font(light, 18, $color)
+
 /* base rules */
 
 body
