@@ -2,27 +2,48 @@
 
 .view-ev-event-block
     width: 100%
-    min-height: 200px
+    height: 600px
+    background-image: url(/* img url */) no-repeat center;
+    background-color: $color-grey-dark;
 
 
 .view-ev-event-title-block
     text-align: center
     +centr-colomn-block()
+    +font(bold, 72px, $color-white)
+
+
+.view-ev-event-info-block
+    +centr-colomn-block()
+    text-align: center
+    +font(bold, 36px, $color-white)
 
 
 .view-ev-event-summary-block
     +grid-container($width:$min-supported-width, $centered: true)
 
 
+=view-ev-event-info-block($offset)
+    +grid-position(4, $offset)
+    height: 300px
+    background-color: $color-magenta
+    text-align: center
+
+
 .view-ev-event-place-block
-    +grid-position(4, 1)
+    +view-ev-event-info-block(1)
+
 
 .view-ev-event-date-block
-    +grid-position(4, 2)
+    +view-ev-event-info-block(2)
 
 
-.view-ev-event-info-block
-    +centr-colomn-block()
+.view-ev-event-info-block-first
+    +font(regular, 36px, $color-white)
+
+
+.view-ev-event-info-block-second
+    +font(regular, 24px, $color-white)
 
 /* actions */
 
