@@ -2,7 +2,7 @@
 
 .view-ev-event-block
     width: 100%
-    height: 600px
+    min-height: 600px
     background-image: url(/* img url */) no-repeat center;
     background-color: $color-grey-dark;
 
@@ -11,12 +11,14 @@
     text-align: center
     +centr-colomn-block()
     +font(bold, 72px, $color-white)
+    padding-top: 0.5em
 
 
 .view-ev-event-info-block
     +centr-colomn-block()
     text-align: center
     +font(bold, 36px, $color-white)
+    padding-bottom: 0.5em
 
 
 .view-ev-event-summary-block
@@ -48,13 +50,24 @@
 /* actions */
 
 .view-ev-actions-block
+    +blue-colored()
+    padding: 2em 0
+
+.view-ev-actions-motivation-block
+    +centr-colomn-block()
+    +font(medium, 18px)
+    margin-bottom: 1.5em
+
+.view-ev-actions-buttons-block
     +grid-container($width:$min-supported-width, $centered: true)
-    min-height: 200px
 
 
 =view-ev-action-button($offset)
     +grid-position(4, $offset)
     padding: 1em
+    +font(medium, 24px)
+    +magento-colored()
+    text-align: center
 
 
 .view-ev-contribute-button

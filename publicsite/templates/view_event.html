@@ -23,8 +23,27 @@
     </div>
 </div>
 <div class="view-ev-actions-block">
-    <a class="view-ev-contribute-button" href="{% url 'contribute' %}">Хочу помочь сообществу</a>
-    <a class="view-ev-registration-button">Хочу пойти</a>
+    <div class="view-ev-actions-motivation-block">
+        <p>
+            D2D - это it-сообщество созданное разработчиками для разработчиков. Нас легион
+            и мы стремимся развивать инженерную культуру, проводя различные профильные события.
+        </p>
+        <p>
+            Ты можешь помочь нашему делу сделав доклад, проведя мастеркласс, побыв
+            волонтером или пожертвовав средства на следующие событие.
+        </p>
+        <p>
+            А еще ты можешь просто прийти на событие, это тоже очень поможет. :)
+        </p>
+    </div>
+    <div class="view-ev-actions-buttons-block">
+        <div class="view-ev-contribute-button">
+            <a href="{% url 'contribute' %}">xочу помочь</a>
+        </div>
+        <div class="view-ev-registration-button">
+            <a>xочу пойти</a>
+        </div>
+    </div>
 </div>
 <div class="view-ev-schedule-block">
 {% for section in event.sections %}
