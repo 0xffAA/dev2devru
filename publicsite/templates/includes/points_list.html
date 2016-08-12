@@ -10,8 +10,8 @@
         <div class="points-list-authors">
         {% for author in point.authors %}
             <div>
-                <div> {{ author.name }} </div>
-                <div> {{ author.company }} </div>
+                <div class="points-list-author-name"> {{ author.name }} </div>
+                <div class="points-list-author-company"> {{ author.company }} </div>
             </div>
         {% endfor %}
         </div>
