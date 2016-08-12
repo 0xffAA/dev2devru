@@ -7,19 +7,23 @@
 
 
 .points-list-times
-    +grid-position(2)
+    +grid-position(3)
     color: $color-grey-dark
+    +font($regular, 18pt, $color-grey-light)
 
 
 .points-list-title
-    +grid-position(4)
+    +grid-position(5)
+    +font($regular, 20pt, $color-black)
+    text-align: center
 
 
 .points-list-authors
-    +grid-position(6)
+    +grid-position(4)
+    text-align: right
 
 .points-list-author-name
-    color: $color-black
+    +font($regular, 20pt, $color-black)
 
 .points-list-author-company
-    color: $color-grey-dark
+    +font($regular, 14pt, $color-grey-light)
