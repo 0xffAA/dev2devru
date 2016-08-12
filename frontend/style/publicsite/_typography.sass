@@ -33,22 +33,23 @@ $font: Ubuntu, Helvetica, Arial, sans-serif
 $base-font-size: 14pt
 
 
-=font($weight, $size, $color: inherit)
+=font($weight, $size, $color: null)
     font-family: $font
     font-weight: $weight
     font-size: $size
-    color: $color
+    @if $color
+        color: $color
 
 
-=header-font($color: inherit)
+=header-font($color: null)
     +font(medium, 36, $color)
 
 
-=subheader-font($color: inherit)
+=subheader-font($color: null)
     +font(regular, 24, $color)
 
 
-=text-font($color: inherit)
+=text-font($color: null)
     +font(light, 18, $color)
 
 /* base rules */
