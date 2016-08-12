@@ -58,12 +58,17 @@
 {% empty %}
     {% include 'includes/points_list.html' with points=event.points only %}
 {% endfor %}
+    <div class="view-ev-schedule-register-button">
+        <a>регистрироваться</a>
+    </div>
 </div>
 <div class="view-ev-map-block">
     <div class="view-ev-map-info-block">
-        <span>{{ event.place.name }}</span> |
-        <span>{{ event.place.address }}</span> |
-        <span>{{ event.date|date:"d.m, l" }}</span>
+        <h3>
+            <span>{{ event.place.name }}</span> |
+            <span>{{ event.place.address }}</span> |
+            <span>{{ event.date|date:"d.m, l" }}</span>
+        </h3>
     </div>
     <div class="view-ev-map-ycontainer"
          data-latitude="{{ event.place.latitude }}"
@@ -71,8 +76,10 @@
     </div>
 </div>
 {% if form %}
-<div>
-    {% include 'includes/new_visitor_form.html' with form=form %}
+<div class="view-ev-registration-block">
+    <div class="view-ev-registration-form-block">
+        {% include 'includes/new_visitor_form.html' with form=form %}
+    </div>
 </div>
 {% endif %}
 

@@ -5,20 +5,20 @@
     min-height: 600px
     background-image: url(/* img url */) no-repeat center;
     background-color: $color-grey-dark;
-    padding-bottom: 20px
+    padding-bottom: 3rem
 
 
 .view-ev-event-title-block
     text-align: center
     +centr-colomn-block()
-    +font(bold, 72px, $color-white)
+    +header-font(68pt, $color-white)
     padding-top: 0.5em
 
 
 .view-ev-event-info-block
     +centr-colomn-block()
     text-align: center
-    +font(bold, 36px, $color-white)
+    +font(bold, 32pt, $color-white)
     padding-bottom: 0.5em
 
 
@@ -29,7 +29,7 @@
 =view-ev-event-info-block($offset)
     +grid-position(4, $offset)
     height: 300px
-    background-color: $color-magenta
+    +magento-colored()
     text-align: center
 
 
@@ -42,11 +42,11 @@
 
 
 .view-ev-event-info-block-first
-    +font(regular, 36px, $color-white)
+    +header-font()
 
 
 .view-ev-event-info-block-second
-    +font(regular, 24px, $color-white)
+    +subheader-font()
 
 /* actions */
 
@@ -56,7 +56,7 @@
 
 .view-ev-actions-motivation-block
     +centr-colomn-block()
-    +font(medium, 18px)
+    +text-font()
     margin-bottom: 1.5em
 
 .view-ev-actions-buttons-block
@@ -66,7 +66,7 @@
 =view-ev-action-button($offset)
     +grid-position(4, $offset)
     padding: 1em
-    +font(medium, 24px)
+    +subheader-font()
     +magento-colored()
     text-align: center
 
@@ -83,8 +83,9 @@
 .view-ev-schedule-header-block
     width: 100%
     +grey-colored()
+    +subheader-font()
     text-align: center
-    padding: 0.5em
+    padding: 0.5rem
 
 
 .view-ev-schedule-block
@@ -95,6 +96,14 @@
 .view-ev-schedule-section-block
     margin-bottom: 1em;
 
+.view-ev-schedule-register-button
+    +magento-colored()
+    padding: 1em
+    margin: 2em auto
+    +subheader-font()
+    text-align: center
+    width: 50%
+
 /* map */
 
 .view-ev-map-block
@@ -103,7 +112,8 @@
 
 .view-ev-map-info-block
     text-align: center
-    padding: 1em
+    padding: 0.5rem
+    +subheader-font()
     +grey-colored()
 
 
@@ -115,3 +125,11 @@
 
 .view-ev-registration-block
     width: 100%
+    min-height: 400px
+    background-image: url(/* img url */) no-repeat center;
+    background-color: $color-grey-dark;
+
+.view-ev-registration-form-block
+    background: $color-grey-light
+    opacity: 0.6
+
