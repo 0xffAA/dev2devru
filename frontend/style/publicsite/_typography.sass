@@ -27,7 +27,7 @@ $light: 200
 /* variables and mixins */
 
 $font: Ubuntu, Helvetica, Arial, sans-serif
-$base-font-size: 14pt
+$base-font-size: 18pt
 
 
 =font($weight, $size, $color: null)
@@ -38,18 +38,23 @@ $base-font-size: 14pt
         color: $color
 
 
-=header-font($size: 36pt, $color: null)
+=header-font($size: 26pt, $color: null)
     +font($bold, $size, $color)
 
 
 =subheader-font($color: null)
-    +font($regular, 24pt, $color)
+    +font($regular, 22pt, $color)
 
 
 =text-font($color: null)
-    +font($light, 18pt, $color)
+    +font($light, $base-font-size, $color)
 
 /* base rules */
 
 body
     font-family: $font
+    font-size: $base-font-size
+
+@for $i from 1 through 3
+    h#{$i}
+        margin: 0.5em
