@@ -1,2 +1,41 @@
 .visitor-form-block
-    +centr-colomn-block($width: 480px)
+    padding: 1em 0
+
+
+.visitor-form-field
+    -webkit-appearance: none
+    -moz-appearance: none
+    -ms-appearance: none
+    appearance: none
+    border: none
+    outline: 0
+    box-shadow: none
+    border-bottom: 2px solid $color-grey-dark
+    background-color: inherit
+    +font($light, 1.2rem, $color-black)
+    padding: 0.3em 0
+    margin: 0.5em 0
+    width: 100%
+    box-sizing: border-box
+
+
+.visitor-form-field:focus
+    border-bottom: 5px solid $color-black
+
+
+.visitor-form-field:invalid,
+.visitor-form-field-invalid
+    border-left: 5px solid $color-magenta
+
+
+.visitor-form-button
+    margin: 1em auto
+    display: block
+    padding: 0.5em
+    +subheader-font()
+    border: none
+    -webkit-appearance: none
+    -moz-appearance: none
+    -ms-appearance: none
+    appearance: none
+    +blue-colored()

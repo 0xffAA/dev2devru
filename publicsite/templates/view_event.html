@@ -77,8 +77,10 @@
 </div>
 {% if form %}
 <div class="view-ev-registration-block">
-    <div class="view-ev-registration-form-block">
-        {% include 'includes/new_visitor_form.html' with form=form %}
+    <div class="view-ev-registration-column-block">
+        <div class="view-ev-registration-form-block">
+            {% include 'includes/new_visitor_form.html' with form=form %}
+        </div>
     </div>
 </div>
 {% endif %}

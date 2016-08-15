@@ -1,5 +1,5 @@
 {% load widget_tweaks %}
-<div>
+<div class="visitor-form-block">
     <form action="{% url 'registration' %}" method="post">
         {% csrf_token %}
         {{ form.event }}
@@ -7,19 +7,15 @@
             TODO: need error showing or indication
         {% endcomment %}
         <div>
-            {% render_field form.email placeholder='em@il' %}
+            {{ form.email|append_attr:"placeholder:em@il"|add_class:"visitor-form-field"|add_error_class:"visitor-form-field-invalid" }}
         </div>
         <div>
             <div>
-                {% render_field form.name placeholder='ФИО' %}
+                {{ form.name|append_attr:"placeholder:ФИО"|add_class:"visitor-form-field"|add_error_class:"visitor-form-field-invalid" }}
+                {{ form.position|append_attr:"placeholder:кем работаешь?"|add_class:"visitor-form-field"|add_error_class:"visitor-form-field-invalid" }}
+                {{ form.company|append_attr:"placeholder:где работаешь"|add_class:"visitor-form-field"|add_error_class:"visitor-form-field-invalid" }}
             </div>
-            <div>
-                {% render_field form.position placeholder='кем работаешь?' %}
-            </div>
-            <div>
-                {% render_field form.company placeholder='где работаешь?' %}
-            </div>
-            <input type="submit" value="регистрация"/>
+            <input class="visitor-form-button" type="submit" value="регистрация"/>
         </div>
     </form>
 </div>
