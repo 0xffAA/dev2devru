@@ -31,6 +31,7 @@ class Event(models.Model):
 
 class Section(models.Model):
     name = models.CharField(max_length=100)
+    description = models.CharField(max_length=100, null=True)
     event = models.ForeignKey(
         Event,
         on_delete=models.CASCADE,
@@ -45,6 +46,7 @@ class Author(models.Model):
     name = models.CharField(max_length=100)
     company = models.CharField(max_length=100)
     position = models.CharField(max_length=100)
+    photo = models.ImageField(upload_to='speakers', null=True)
 
     def __str__(self):
         return self.name
