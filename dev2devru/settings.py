@@ -10,10 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
-import os
+from os import path
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = path.dirname(path.dirname(path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
@@ -78,11 +78,8 @@ WSGI_APPLICATION = 'dev2devru.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'HOST': '192.168.1.151',
+        'ENGINE': 'django.db.backends.sqlite3',
         'NAME': 'd2db',
-        'USER': 'dev',
-        'PASSWORD': '123581321',
     }
 }
 
@@ -125,6 +122,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# Media files (loaded images & ko)
+
+MEDIA_ROOT = path.join(path.dirname(path.dirname(path.abspath(__file__))), 'content')
+MEDIA_URL = '/content/'
 
 # Logging
 LOGGING = {

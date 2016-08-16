@@ -75,6 +75,19 @@ class Point(models.Model):
         ordering = ['start']
 
 
+class Partner(models.Model):
+    name = models.CharField(max_length=100)
+    url = models.URLField()
+    logo = models.ImageField(upload_to='partners')
+    events = models.ManyToManyField(
+        Event,
+        related_name='partners'
+    )
+
+    def __str__(self):
+        return self.name
+
+
 class Materials(models.Model):
     slides = models.URLField()
     video = models.URLField()

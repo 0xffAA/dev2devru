@@ -1,3 +1,12 @@
+/* private utils */
+
+=view-event-section-header()
+    width: 100%
+    +grey-colored()
+    +subheader-font()
+    text-align: center
+    padding: 0.5rem 0
+
 /* event information */
 
 .view-ev-event-block
@@ -81,11 +90,7 @@
 /* schedule */
 
 .view-ev-schedule-header-block
-    width: 100%
-    +grey-colored()
-    +subheader-font()
-    text-align: center
-    padding: 0.5rem 0
+    +view-event-section-header()
 
 
 .view-ev-schedule-block
@@ -107,15 +112,12 @@
 
 /* map */
 
+.view-ev-map-header-block
+    +view-event-section-header()
+
+
 .view-ev-map-block
     width: 100%
-
-
-.view-ev-map-info-block
-    text-align: center
-    padding: 0.5rem
-    +subheader-font()
-    +grey-colored()
 
 
 .view-ev-map-ycontainer
@@ -141,4 +143,15 @@
     width: 300px
     padding: 1em
 
+/* partners */
 
+.view-ev-partners-header-block
+    +view-event-section-header()
+
+
+.view-ev-partners-block
+    width: 100%
+
+
+.view-ev-partners-column-block
+    +centr-colomn-block()

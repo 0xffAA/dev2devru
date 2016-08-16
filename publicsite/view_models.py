@@ -36,3 +36,4 @@ class EventVM:
         else:
             self.points = _read_points(event.points)
         self.place = event.place
+        self.partners = [p for p in event.partners]

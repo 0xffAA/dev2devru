@@ -62,14 +62,14 @@
         <a>регистрироваться</a>
     </div>
 </div>
+<div class="view-ev-map-header-block">
+    <h3>
+        <span>{{ event.place.name }}</span> |
+        <span>{{ event.place.address }}</span> |
+        <span>{{ event.date|date:"d.m, l" }}</span>
+    </h3>
+</div>
 <div class="view-ev-map-block">
-    <div class="view-ev-map-info-block">
-        <h3>
-            <span>{{ event.place.name }}</span> |
-            <span>{{ event.place.address }}</span> |
-            <span>{{ event.date|date:"d.m, l" }}</span>
-        </h3>
-    </div>
     <div class="view-ev-map-ycontainer"
          data-latitude="{{ event.place.latitude }}"
          data-longitude="{{ event.place.longitude }}">
@@ -84,5 +84,16 @@
     </div>
 </div>
 {% endif %}
-
+<div class="view-ev-partners-header-block">
+    <h3>
+        Партнеры
+    </h3>
+</div>
+<div>S
+{% for partner in event.partners %}
+    <div>
+        {{ partner.name }}
+    </div>
+{% endfor %}
+</div>
 {% endblock %}
