@@ -150,8 +150,29 @@
 
 
 .view-ev-partners-block
-    width: 100%
-
-
-.view-ev-partners-column-block
     +centr-colomn-block()
+
+.view-ev-partners-list-block
+    text-align: center
+
+.view-ev-partners-partner-block
+    display: inline-block
+    max-width: 320px
+    padding: 1em 0
+
+    img
+        max-width: 300px
+        max-height: 300px
+        vertical-align: middle
+        margin: 0 10px
+
+    h3
+        +subheader-font($color-grey-light)
+
+.view-ev-partners-become-button
+    +subheader-font()
+    text-align: center
+    margin: 2em auto
+    padding: 1em
+    +black-colored()
+    width: 50%

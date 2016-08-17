@@ -89,11 +89,19 @@
         Партнеры
     </h3>
 </div>
-<div>S
-{% for partner in event.partners %}
-    <div>
-        {{ partner.name }}
+<div class="view-ev-partners-block">
+    <div class="view-ev-partners-list-block">
+    {% for partner in event.partners %}
+        <div class="view-ev-partners-partner-block">
+            <img src="{{ partner.logo.url }}">
+            <h3>
+                {{ partner.name }}
+            </h3>
+        </div>
+    {% endfor %}
     </div>
-{% endfor %}
+    <div class="view-ev-partners-become-button">
+        стать партнёром
+    </div>
 </div>
 {% endblock %}
