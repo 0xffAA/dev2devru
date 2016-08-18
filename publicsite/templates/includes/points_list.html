@@ -1,19 +1,27 @@
-<div class="points-list-block">
+<div class="points-list">
 {% for point in points %}
     <div class="points-list-point">
-        <div class="points-list-times">
-            {{ point.start|time:"H:i" }} - {{ point.end|time:"H:i" }}
-        </div>
-        <div class="points-list-title">
-            {{ point.title }}
-        </div>
-        <div class="points-list-authors">
-        {% for author in point.authors %}
-            <div>
-                <div class="points-list-author-name"> {{ author.name }} </div>
-                <div class="points-list-author-company"> {{ author.company }} </div>
+        <div class="points-list-point-leftside">
+            <div class="points-list-point-times">
+                {{ point.start|time:"H:i" }} - {{ point.end|time:"H:i" }}
             </div>
-        {% endfor %}
+            {% for author in point.authors %}
+            <div>
+            {% if author.photo%}
+                <img class="points-list-point-author-photo" alt="ooops..." src="{{ author.photo.url }}"/>
+            {% endif %}
+                <div class="points-list-point-author-name"> {{ author.name }} </div>
+                <div class="points-list-point-author-company"> {{ author.company }} </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="points-list-point-rightside">
+            <div class="points-list-point-title">
+                {{ point.title }}
+            </div>
+            <div class="points-list-point-description">
+                {{ point.description }}
+            </div>
         </div>
     </div>
 {% endfor %}

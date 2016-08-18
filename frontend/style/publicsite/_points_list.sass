@@ -1,29 +1,43 @@
-.points-list-block
-    +grid-container($width:100%)
+.points-list
+    list-style: none
+    padding: 0
 
 
 .points-list-point
-    +grid-row()
+    +grid-container($width:100%)
 
 
-.points-list-times
+.points-list-point-leftside
     +grid-position(3)
-    color: $color-grey-dark
-    +font($regular, 18pt, $color-grey-light)
-
-
-.points-list-title
-    +grid-position(5)
-    +font($regular, 20pt, $color-black)
     text-align: center
 
 
-.points-list-authors
-    +grid-position(4)
-    text-align: right
+.points-list-point-times
+    color: $color-grey-dark
+    +font($regular, 20pt, $color-grey-light)
 
-.points-list-author-name
+
+.points-list-point-author-photo
+    max-width: 150px
+    max-height: 150px
+    border-radius: 100%
+    margin: 1em auto 0.5em auto
+
+
+.points-list-point-author-name
     +font($regular, 20pt, $color-black)
 
-.points-list-author-company
+
+.points-list-point-author-company
     +font($regular, 14pt, $color-grey-light)
+
+
+.points-list-point-rightside
+    +grid-position(9)
+
+.points-list-point-title
+    +font($regular, 20pt, $color-black)
+
+.points-list-point-description
+    margin-top: 0.5em
+    +font($light, 20pt, $color-grey-light)
