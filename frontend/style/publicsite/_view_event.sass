@@ -5,30 +5,28 @@
     +grey-colored()
     +subheader-font()
     text-align: center
-    padding: 0.5rem 0
+    padding: 1rem 0
 
 /* event information */
 
 .view-ev-event-block
     width: 100%
-    min-height: 600px
+    min-height: 60rem
     background-image: url(/* img url */) no-repeat center;
     background-color: $color-grey-dark;
-    padding-bottom: 3rem
-
-
-.view-ev-event-title-block
-    text-align: center
-    +centr-colomn-block()
-    +header-font(68pt, $color-white)
-    padding-top: 0.5em
+    padding-bottom: 5rem
 
 
 .view-ev-event-info-block
-    +centr-colomn-block()
     text-align: center
-    +font(bold, 32pt, $color-white)
-    padding-bottom: 0.5em
+    +centr-colomn-block()
+    padding: 5rem 0 5rem 0
+
+    h1
+        +header-font($size: 7.2rem, $color: $color-white)
+
+    p
+        +subheader-font($size: 4.2rem, $color: $color-white)
 
 
 .view-ev-event-summary-block
@@ -37,9 +35,14 @@
 
 =view-ev-event-info-block($offset)
     +grid-position(4, $offset)
-    height: 300px
+    height: 30rem
     +magenta-colored()
     text-align: center
+
+    p:nth-child(1)
+        +header-font()
+    p
+       +subheader-font()
 
 
 .view-ev-event-place-block
@@ -49,24 +52,16 @@
 .view-ev-event-date-block
     +view-ev-event-info-block(2)
 
-
-.view-ev-event-info-block-first
-    +header-font()
-
-
-.view-ev-event-info-block-second
-    +subheader-font()
-
 /* actions */
 
 .view-ev-actions-block
     +blue-colored()
-    padding: 2em 0
+    padding: 2rem 0
 
 .view-ev-actions-motivation-block
     +centr-colomn-block()
     +text-font()
-    margin-bottom: 1.5em
+    margin-bottom: 1.5rem
 
 .view-ev-actions-buttons-block
     +grid-container($width:$min-supported-width, $centered: true)
@@ -74,10 +69,8 @@
 
 =view-ev-action-button($offset)
     +grid-position(4, $offset)
-    padding: 1em
-    +subheader-font()
     +magenta-colored()
-    text-align: center
+    +button(null, null)
 
 
 .view-ev-contribute-button
@@ -95,20 +88,16 @@
 
 .view-ev-schedule-block
     +centr-colomn-block()
-    padding: 1em 0
+    padding: 1rem 0
 
 
 .view-ev-schedule-section-block
-    margin-bottom: 1em;
+    margin-bottom: 1rem;
 
 
 .view-ev-schedule-register-button
     +magenta-colored()
-    padding: 1em
-    margin: 2em auto
-    +subheader-font()
-    text-align: center
-    width: 50%
+    +button()
 
 /* map */
 
@@ -131,7 +120,7 @@
     min-height: 400px
     background-image: url(/* img url */) no-repeat center;
     background-color: $color-grey-dark;
-    padding: 3em 0
+    padding: 3rem 0
 
 
 .view-ev-registration-column-block
@@ -140,8 +129,8 @@
 
 .view-ev-registration-form-block
     background: $color-white
-    width: 300px
-    padding: 1em
+    width: 30rem
+    margin 2rem 0
 
 /* partners */
 
@@ -157,22 +146,18 @@
 
 .view-ev-partners-partner-block
     display: inline-block
-    max-width: 320px
-    padding: 1em 0
+    max-width: 32rem
+    padding: 1rem 0
 
     img
-        max-width: 300px
-        max-height: 300px
+        max-width: 30rem
+        max-height: 30rem
         vertical-align: middle
-        margin: 0 10px
+        margin: 0 1rem
 
     h3
         +subheader-font($color-grey-light)
 
 .view-ev-partners-become-button
-    +subheader-font()
-    text-align: center
-    margin: 2em auto
-    padding: 1em
+    +button()
     +black-colored()
-    width: 50%

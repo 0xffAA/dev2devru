@@ -4,25 +4,23 @@
 
 {% block content %}
 
-<div class="view-ev-event-block">
-    <div class="view-ev-event-title-block">
-        {{ event.name }}
-    </div>
+<section class="view-ev-event-block">
     <div class="view-ev-event-info-block">
+        <h1>{{ event.name }}</h1>
         <p>{{ event.description }}</p>
     </div>
     <div class="view-ev-event-summary-block">
         <div class="view-ev-event-place-block">
-            <p class="view-ev-event-info-block-first">{{ event.place.name }}</p>
-            <p class="view-ev-event-info-block-second">{{ event.place.address }}</p>
+            <p>{{ event.place.name }}</p>
+            <p>{{ event.place.address }}</p>
         </div>
         <div class="view-ev-event-date-block">
-            <p class="view-ev-event-info-block-first">{{ event.date|date:"d.m" }}</p>
-            <p class="view-ev-event-info-block-second">{{ event.date|date:"l" }}</p>
+            <p>{{ event.date|date:"d.m" }}</p>
+            <p>{{ event.date|date:"l" }}</p>
         </div>
     </div>
-</div>
-<div class="view-ev-actions-block">
+</section>
+<section class="view-ev-actions-block">
     <div class="view-ev-actions-motivation-block">
         <p>
             D2D - это it-сообщество созданное разработчиками для разработчиков. Нас легион
@@ -44,64 +42,70 @@
             <a>xочу пойти</a>
         </div>
     </div>
-</div>
-<div class="view-ev-schedule-header-block">
-    <h3>Расписание</h3>
-</div>
-<div class="view-ev-schedule-block">
-{% for section in event.sections %}
-    <div class="view-ev-schedule-section-block">
-        <h2>{{ section.name }}</h2>
-        <p>{{ section.description }}</p>
+</section>
+<section>
+    <div class="view-ev-schedule-header-block">
+        <h2>Расписание</h2>
     </div>
-    {% include 'includes/points_list.html' with points=section.points only %}
-{% empty %}
-    {% include 'includes/points_list.html' with points=event.points only %}
-{% endfor %}
-    <div class="view-ev-schedule-register-button">
-        <a>регистрироваться</a>
-    </div>
-</div>
-<div class="view-ev-map-header-block">
-    <h3>
-        <span>{{ event.place.name }}</span> |
-        <span>{{ event.place.address }}</span> |
-        <span>{{ event.date|date:"d.m, l" }}</span>
-    </h3>
-</div>
-<div class="view-ev-map-block">
-    <div class="view-ev-map-ycontainer"
-         data-latitude="{{ event.place.latitude }}"
-         data-longitude="{{ event.place.longitude }}">
-    </div>
-</div>
-{% if form %}
-<div class="view-ev-registration-block">
-    <div class="view-ev-registration-column-block">
-        <div class="view-ev-registration-form-block">
-            {% include 'includes/new_visitor_form.html' with form=form %}
+    <div class="view-ev-schedule-block">
+    {% for section in event.sections %}
+        <div class="view-ev-schedule-section-block">
+            <h3>{{ section.name }}</h3>
+            <p>{{ section.description }}</p>
         </div>
-    </div>
-</div>
-{% endif %}
-<div class="view-ev-partners-header-block">
-    <h3>
-        Партнеры
-    </h3>
-</div>
-<div class="view-ev-partners-block">
-    <div class="view-ev-partners-list-block">
-    {% for partner in event.partners %}
-        <div class="view-ev-partners-partner-block">
-            <img src="{{ partner.logo.url }}">
-            <h3>
-                {{ partner.name }}
-            </h3>
-        </div>
+        {% include 'includes/points_list.html' with points=section.points only %}
+    {% empty %}
+        {% include 'includes/points_list.html' with points=event.points only %}
     {% endfor %}
+        <div class="view-ev-schedule-register-button">
+            <a>регистрироваться</a>
+        </div>
     </div>
-    <div class="view-ev-partners-become-button">
-        стать партнёром
+</section>
+<section>
+    <div class="view-ev-map-header-block">
+        <h2>
+            <span>{{ event.place.name }}</span> |
+            <span>{{ event.place.address }}</span> |
+            <span>{{ event.date|date:"d.m, l" }}</span>
+        </h2>
     </div>
+    <div class="view-ev-map-block">
+        <div class="view-ev-map-ycontainer"
+             data-latitude="{{ event.place.latitude }}"
+             data-longitude="{{ event.place.longitude }}">
+        </div>
+    </div>
+    {% if form %}
+    <div class="view-ev-registration-block">
+        <div class="view-ev-registration-column-block">
+            <div class="view-ev-registration-form-block">
+                {% include 'includes/new_visitor_form.html' with form=form %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</section>
+<section>
+    <div class="view-ev-partners-header-block">
+        <h2>
+            Партнеры
+        </h2>
+    </div>
+    <div class="view-ev-partners-block">
+        <div class="view-ev-partners-list-block">
+        {% for partner in event.partners %}
+            <div class="view-ev-partners-partner-block">
+                <img src="{{ partner.logo.url }}">
+                <h3>
+                    {{ partner.name }}
+                </h3>
+            </div>
+        {% endfor %}
+        </div>
+        <div class="view-ev-partners-become-button">
+            стать партнёром
+        </div>
 </div>
+</section>
 {% endblock %}

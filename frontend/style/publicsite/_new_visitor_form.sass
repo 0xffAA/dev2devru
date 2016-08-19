@@ -1,6 +1,6 @@
 .visitor-form-block
-    padding: 1em 0
-
+    padding: 2rem 0
+    margin: 1rem
 
 .visitor-form-field
     -webkit-appearance: none
@@ -10,29 +10,27 @@
     border: none
     outline: 0
     box-shadow: none
-    border-bottom: 2px solid $color-grey-dark
+    border-bottom: 0.2rem solid $color-grey-dark
     background-color: inherit
-    +font($light, 1.2rem, $color-black)
-    padding: 0.3em 0
-    margin: 0.5em 0
+    +text-font($color: $color-black)
+    padding: 0.5rem 0
+    margin: 1rem 0
     width: 100%
     box-sizing: border-box
 
 
 .visitor-form-field:focus
-    border-bottom: 5px solid $color-black
+    border-bottom: 0.5rem solid $color-black
 
 
 .visitor-form-field:invalid,
 .visitor-form-field-invalid
-    border-bottom: 5px solid $color-magenta
+    border-bottom: 0.5rem solid $color-magenta
 
 
 .visitor-form-button
-    margin: 1em auto
+    +button($width: 100%)
     display: block
-    padding: 0.5em
-    +subheader-font()
     border: none
     -webkit-appearance: none
     -moz-appearance: none

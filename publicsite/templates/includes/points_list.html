@@ -1,6 +1,6 @@
 <div class="points-list">
 {% for point in points %}
-    <div class="points-list-point">
+    <article class="points-list-point">
         <div class="points-list-point-leftside">
             <div class="points-list-point-times">
                 {{ point.start|time:"H:i" }} - {{ point.end|time:"H:i" }}
@@ -16,13 +16,13 @@
             {% endfor %}
         </div>
         <div class="points-list-point-rightside">
-            <div class="points-list-point-title">
+            <h4 class="points-list-point-title">
                 {{ point.title }}
-            </div>
-            <div class="points-list-point-description">
+            </h4>
+            <p class="points-list-point-description">
                 {{ point.description }}
-            </div>
+            </p>
         </div>
-    </div>
+    </article>
 {% endfor %}
 </div>

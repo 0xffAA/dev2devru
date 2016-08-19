@@ -4,7 +4,8 @@
 
 
 =centered-horizontal()
-    margin: auto
+    margin-left: auto
+    margin-right: auto
 
 
 =centr-colomn-block($width: $min-supported-width)
@@ -31,3 +32,16 @@
 
 =black-colored()
     +coloring($color-black, $color-white)
+
+
+=button($width: 50%, $centered: true)
+    padding: 1.5rem
+    +subheader-font()
+    text-align: center
+    @if $width
+        width: $width
+    @if $centered
+        +centered-horizontal()
+    margin-top: 3rem
+    margin-bottom: 3rem
+    cursor: pointer

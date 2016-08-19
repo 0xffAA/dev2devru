@@ -14,30 +14,32 @@
 
 .points-list-point-times
     color: $color-grey-dark
-    +font($regular, 20pt, $color-grey-light)
+    +font($regular, 2.4rem, $color-grey-light)
+    margin-bottom: 1rem
 
 
 .points-list-point-author-photo
-    max-width: 150px
-    max-height: 150px
+    max-width: 15rem
+    max-height: 15rem
     border-radius: 100%
-    margin: 1em auto 0.5em auto
+    margin: 0 auto 1rem auto
 
 
 .points-list-point-author-name
-    +font($regular, 20pt, $color-black)
+    +font($regular, 2rem, $color-black)
 
 
 .points-list-point-author-company
-    +font($regular, 14pt, $color-grey-light)
+    +font($regular, 1.4rem, $color-grey-light)
 
 
 .points-list-point-rightside
     +grid-position(9)
 
-.points-list-point-title
-    +font($regular, 20pt, $color-black)
+    h4
+        +font($regular, 2.4rem, $color-black)
+        margin: 0 0 1rem 0
 
-.points-list-point-description
-    margin-top: 0.5em
-    +font($light, 20pt, $color-grey-light)
+    p
+        margin: 0
+        +font($light, 2rem, $color-grey-light)
