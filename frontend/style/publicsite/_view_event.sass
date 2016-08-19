@@ -7,6 +7,17 @@
     text-align: center
     padding: 1rem 0
 
+a.block-link
+    display: block
+    height: 100%
+    width: 100%
+
+.anchor
+    visibility: hidden
+    margin-top: -$header-height
+    position: absolute
+    height: 0
+
 /* event information */
 
 .view-ev-event-block
@@ -20,7 +31,7 @@
 .view-ev-event-info-block
     text-align: center
     +centr-colomn-block()
-    padding: 5rem 0 5rem 0
+    padding: $header-height 0 5rem 0
 
     h1
         +header-font($size: 7.2rem, $color: $color-white)
@@ -96,7 +107,7 @@
 
 
 .view-ev-schedule-register-button
-    +magenta-colored()
+    +blue-colored()
     +button()
 
 /* map */

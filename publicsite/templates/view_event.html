@@ -11,12 +11,16 @@
     </div>
     <div class="view-ev-event-summary-block">
         <div class="view-ev-event-place-block">
-            <p>{{ event.place.name }}</p>
-            <p>{{ event.place.address }}</p>
+            <a class="block-link" href="#map">
+                <p>{{ event.place.name }}</p>
+                <p>{{ event.place.address }}</p>
+            </a>
         </div>
         <div class="view-ev-event-date-block">
-            <p>{{ event.date|date:"d.m" }}</p>
-            <p>{{ event.date|date:"l" }}</p>
+            <a class="block-link" href="#registration">
+                <p>{{ event.date|date:"d.m" }}</p>
+                <p>{{ event.date|date:"l" }}</p>
+            </a>
         </div>
     </div>
 </section>
@@ -36,14 +40,14 @@
     </div>
     <div class="view-ev-actions-buttons-block">
         <div class="view-ev-contribute-button">
-            <a href="{% url 'contribute' %}">xочу помочь</a>
+            <a class="block-link" href="{% url 'contribute' %}">помочь</a>
         </div>
         <div class="view-ev-registration-button">
-            <a>xочу пойти</a>
+            <a class="block-link" href="#registration">пойти</a>
         </div>
     </div>
 </section>
-<section>
+<section id="schedule">
     <div class="view-ev-schedule-header-block">
         <h2>Расписание</h2>
     </div>
@@ -58,11 +62,12 @@
         {% include 'includes/points_list.html' with points=event.points only %}
     {% endfor %}
         <div class="view-ev-schedule-register-button">
-            <a>регистрироваться</a>
+            <a class="block-link" href="#registration">регистрация</a>
         </div>
     </div>
 </section>
 <section>
+    <div id="map" class="anchor" style="anchor"></div>
     <div class="view-ev-map-header-block">
         <h2>
             <span>{{ event.place.name }}</span> |
@@ -76,7 +81,10 @@
              data-longitude="{{ event.place.longitude }}">
         </div>
     </div>
-    {% if form %}
+</section>
+{% if form %}
+<section>
+    <div id="registration" class="anchor" style="anchor"></div>
     <div class="view-ev-registration-block">
         <div class="view-ev-registration-column-block">
             <div class="view-ev-registration-form-block">
@@ -84,9 +92,9 @@
             </div>
         </div>
     </div>
-    {% endif %}
 </section>
-<section>
+{% endif %}
+<section id="partners">
     <div class="view-ev-partners-header-block">
         <h2>
             Партнеры
