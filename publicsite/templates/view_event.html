@@ -55,7 +55,7 @@
     {% for section in event.sections %}
         <div class="view-ev-schedule-section-block">
             <h3>{{ section.name }}</h3>
-            <p>{{ section.description }}</p>
+            <p>@ {{ section.description }}</p>
         </div>
         {% include 'includes/points_list.html' with points=section.points only %}
     {% empty %}

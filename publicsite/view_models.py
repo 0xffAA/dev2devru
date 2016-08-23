@@ -20,6 +20,7 @@ class PointVM:
 class SectionVM:
     def __init__(self, section):
         self.name = section.name
+        self.description = section.description
         self.points = _read_points(section.points)
 
 
