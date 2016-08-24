@@ -23,8 +23,8 @@ a.block-link
 .view-ev-event-block
     width: 100%
     min-height: 60rem
-    background-image: url(/* img url */) no-repeat center;
-    background-color: $color-grey-dark;
+    background: url(view-ev-event-block-back.jpg) no-repeat center;
+    background-size: cover
     padding-bottom: 5rem
 
 
@@ -52,8 +52,13 @@ a.block-link
 
     p:nth-child(1)
         +header-font()
+
     p
        +subheader-font()
+
+    img
+        heigth: 10rem
+        width: 10rem
 
 
 .view-ev-event-place-block
@@ -90,6 +95,7 @@ a.block-link
 
 .view-ev-registration-button
     +view-ev-action-button(2)
+
 
 /* schedule */
 
@@ -139,8 +145,8 @@ a.block-link
 .view-ev-registration-block
     width: 100%
     min-height: 400px
-    background-image: url(/* img url */) no-repeat center;
-    background-color: $color-grey-dark;
+    background: url(view-ev-registration-block-back.jpg) no-repeat center;
+    background-size: cover
     padding: 3rem 0
 
 

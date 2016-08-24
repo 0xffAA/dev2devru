@@ -3,6 +3,12 @@
 var gulp = require('gulp')
 var sass = require('gulp-sass')
 
+gulp.task('img', function () {
+    return gulp.src(['./img/publicsite/*', './img/*', '!./img/publicsite/'])
+        .pipe(gulp.dest('../publicsite/static/'));
+});
+
+
 gulp.task('sass', function () {
     return gulp.src('./style/publicsite/style.sass')
         .pipe(sass().on('error', sass.logError))
@@ -15,7 +21,7 @@ gulp.task('font', function () {
 });
 
 gulp.task('publicsite', function () {
-    return gulp.run('font', 'sass');
+    return gulp.run('font', 'sass', 'img');
 });
 
 gulp.task('watch', function() {

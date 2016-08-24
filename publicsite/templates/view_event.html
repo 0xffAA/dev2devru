@@ -1,5 +1,5 @@
 {% extends '_layout.html' %}
-
+{% load staticfiles %}
 {% block title %} {{ event.name }} {% endblock %}
 
 {% block content %}
@@ -14,12 +14,14 @@
             <a class="block-link" href="#map">
                 <p>{{ event.place.name }}</p>
                 <p>{{ event.place.address }}</p>
+                <img src="{% static 'view-ev-event-place-icon.svg' %}"/>
             </a>
         </div>
         <div class="view-ev-event-date-block">
             <a class="block-link" href="#registration">
                 <p>{{ event.date|date:"d.m" }}</p>
                 <p>{{ event.date|date:"l" }}</p>
+                <img src="{% static 'view-ev-event-date-icon.svg' %}"/>
             </a>
         </div>
     </div>
