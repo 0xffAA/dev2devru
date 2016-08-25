@@ -71,12 +71,18 @@ div.footer-social-icons-block
 div.footer-contacts-block
     +grid-position(6)
 
-h4.footer-contacts-header
+=footer-header()
     margin: 0 0 1rem 0
+
+h4.footer-contacts-header
+    +footer-header()
 
 ul.footer-contacts-list
     list-style-type: none
     +clear-indents()
+
+h4.footer-social-header
+    +footer-header()
 
 ul.footer-social-icons-list
     list-style-type: none
