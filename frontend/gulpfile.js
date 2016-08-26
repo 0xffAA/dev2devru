@@ -1,13 +1,19 @@
 'use strict'
 
-var gulp = require('gulp')
-var sass = require('gulp-sass')
+var gulp = require('gulp');
+var sass = require('gulp-sass');
+var concat = require('gulp-concat');
 
 gulp.task('img', function () {
     return gulp.src(['./img/publicsite/*', './img/*', '!./img/publicsite/'])
         .pipe(gulp.dest('../publicsite/static/'));
 });
 
+gulp.task('js', function () {
+    return gulp.src('./app/publicsite/*.js')
+        .pipe(concat('app.js'))
+        .pipe(gulp.dest('../publicsite/static/'));
+});
 
 gulp.task('sass', function () {
     return gulp.src('./style/publicsite/style.sass')
@@ -21,7 +27,7 @@ gulp.task('font', function () {
 });
 
 gulp.task('publicsite', function () {
-    return gulp.run('font', 'sass', 'img');
+    return gulp.run('font', 'sass', 'img', 'js');
 });
 
 gulp.task('watch', function() {

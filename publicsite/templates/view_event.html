@@ -79,8 +79,8 @@
     </div>
     <div class="view-ev-map-block">
         <div class="view-ev-map-ycontainer"
-             data-latitude="{{ event.place.latitude }}"
-             data-longitude="{{ event.place.longitude }}">
+             data-position-latitude="{{ event.place.latitude }}"
+             data-position-longitude="{{ event.place.longitude }}">
         </div>
     </div>
 </section>
@@ -118,4 +118,10 @@
         </div>
 </div>
 </section>
+{% endblock %}
+
+{% block include %}
+{{ block.super }}
+<script src="https://api-maps.yandex.ru/2.0-stable/?load=package.map,package.search&lang=ru-RU" type="text/javascript"></script>
+<script src="{% static 'app.js' %}" type="text/javascript"></script>
 {% endblock %}
