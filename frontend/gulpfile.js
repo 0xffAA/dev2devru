@@ -31,5 +31,13 @@ gulp.task('publicsite', function () {
 });
 
 gulp.task('watch', function() {
-    gulp.watch('./style/publicsite/*.sass', ['sass']);
+    gulp.watch(
+        [
+            './style/publicsite/*.sass',
+            './app/publicsite/*.js'
+        ],
+        [
+            'sass',
+            'js'
+        ]);
 });
