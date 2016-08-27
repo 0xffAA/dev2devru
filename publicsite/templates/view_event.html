@@ -79,8 +79,11 @@
     </div>
     <div class="view-ev-map-block">
         <div class="view-ev-map-ycontainer"
-             data-position-latitude="{{ event.place.latitude }}"
-             data-position-longitude="{{ event.place.longitude }}">
+             data-place-latitude="{{ event.place.place_latitude }}"
+             data-place-longitude="{{ event.place.place_longitude }}"
+             data-center-latitude="{{ event.place.center_latitude }}"
+             data-center-longitude="{{ event.place.center_longitude }}"
+             data-zoom="{{ event.place.zoom }}">
         </div>
     </div>
 </section>

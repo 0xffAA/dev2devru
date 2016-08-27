@@ -5,8 +5,11 @@ from .managers import *
 class Place(models.Model):
     name = models.CharField(max_length=100)
     address = models.CharField(max_length=200)
-    latitude = models.FloatField()
-    longitude = models.FloatField()
+    place_latitude = models.FloatField()
+    place_longitude = models.FloatField()
+    center_latitude = models.FloatField(null=True)
+    center_longitude = models.FloatField(null=True)
+    zoom = models.IntegerField(null=True)
 
     def __str__(self):
         return "{0} [{1}]".format(self.name, self.address)

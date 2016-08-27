@@ -33,8 +33,8 @@
             }
         }
 
-        var positionLatitude = smartRead.call(container, 'data-position-latitude'),
-            positionLongitude = smartRead.call(container, 'data-position-longitude');
+        var positionLatitude = smartRead.call(container, 'data-place-latitude'),
+            positionLongitude = smartRead.call(container, 'data-place-longitude');
 
         return {
             position: [
