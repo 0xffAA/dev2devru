@@ -1,0 +1,24 @@
+{
+  "name": "dev2devru",
+  "description": "dev2devru site frontend",
+  "main": "gulpfile.js",
+  "authors": [
+    "0xffaa"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "it",
+    "krk",
+    "dev",
+    "dev2dev"
+  ],
+  "homepage": "https://github.com/0xffAA/dev2devru",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "ready.js": "^0.1.2"
+  }
+}
