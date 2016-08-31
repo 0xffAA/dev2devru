@@ -16,4 +16,4 @@ class NewVisitorForm(forms.ModelForm):
 
     class Meta:
         model = Visitor
-        fields = '__all__'
+        exclude = ['registered_at']

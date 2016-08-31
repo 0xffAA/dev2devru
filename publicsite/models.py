@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.db import models
 from .managers import *
 
@@ -112,6 +113,7 @@ class Visitor(models.Model):
     position = models.CharField(max_length=100, null=True)
     company = models.CharField(max_length=100, null=True)
     email = models.EmailField(db_index=True)
+    registered_at = models.DateTimeField(auto_now_add=True)
     event = models.ForeignKey(
         Event,
         on_delete=models.CASCADE,
