@@ -19,6 +19,5 @@
     "bower_components"
   ],
   "dependencies": {
-    "ready.js": "^0.1.2"
   }
 }
