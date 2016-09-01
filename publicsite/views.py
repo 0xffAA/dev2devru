@@ -1,9 +1,12 @@
+import json
+
 from django.views.decorators.csrf import csrf_protect
 from django.shortcuts import render, redirect
-from django.http import Http404
+from django.http import Http404, JsonResponse
 from django.core.urlresolvers import reverse
+from django.views.decorators.http import require_POST
 
-from .models import Event
+from .models import Event, Visitor
 from .forms import NewVisitorForm
 from .view_models import EventVM
 
@@ -21,6 +24,23 @@ def current_event(request):
             request,
             'empty_event.html'
         )
+
+
+@require_POST
+@csrf_protect
+def query_visitor(request):
+    if request.is_ajax():
+        try:
+            email = json.loads(request.body.decode(encoding='UTF-8'))['email']
+            result = Visitor.objects.filter(email=email).order_by('-registered_at')[0]
+            return JsonResponse({
+                'name': result.name,
+                'position': result.position,
+                'company': result.company
+            })
+        except:
+            pass
+    return JsonResponse({})
 
 
 @csrf_protect

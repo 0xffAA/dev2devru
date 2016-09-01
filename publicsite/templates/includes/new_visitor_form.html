@@ -1,21 +1,16 @@
 {% load widget_tweaks %}
 <div class="visitor-form-block">
-    <form action="{% url 'registration' %}" method="post">
-        {% csrf_token %}
+    <form id="visitor-form" action="{% url 'registration' %}" method="post">
         {{ form.event }}
-        {% comment %}
-            TODO: need error showing or indication
-        {% endcomment %}
-        <div>
+        <div id="visitor-form-query-fields">
+            {% csrf_token %}
             {{ form.email|append_attr:"placeholder:em@il"|add_class:"visitor-form-field"|add_error_class:"visitor-form-field-invalid" }}
         </div>
-        <div>
-            <div>
-                {{ form.name|append_attr:"placeholder:ФИО"|add_class:"visitor-form-field"|add_error_class:"visitor-form-field-invalid" }}
-                {{ form.position|append_attr:"placeholder:кем работаешь?"|add_class:"visitor-form-field"|add_error_class:"visitor-form-field-invalid" }}
-                {{ form.company|append_attr:"placeholder:где работаешь?"|add_class:"visitor-form-field"|add_error_class:"visitor-form-field-invalid" }}
-            </div>
-            <input class="visitor-form-button" type="submit" value="регистрация"/>
+        <div id="visitor-form-autofill-fields">
+            {{ form.name|append_attr:"placeholder:ФИО"|add_class:"visitor-form-field"|add_error_class:"visitor-form-field-invalid" }}
+            {{ form.position|append_attr:"placeholder:кем работаешь?"|add_class:"visitor-form-field"|add_error_class:"visitor-form-field-invalid" }}
+            {{ form.company|append_attr:"placeholder:где работаешь?"|add_class:"visitor-form-field"|add_error_class:"visitor-form-field-invalid" }}
         </div>
+        <input class="visitor-form-button" type="submit" value="регистрация"/>
     </form>
 </div>
