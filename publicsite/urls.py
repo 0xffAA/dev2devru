@@ -10,5 +10,5 @@ urlpatterns = [
     url(r'^history$', views.events_history, name='history'),
     url(r'^about$', views.about, name='about'),
     url(r'^contribute$', views.contribute, name='contribute'),
-    url(r'^queryvisitorinfo', views.query_visitor, name='query_visitor')
+    url(r'^queryvisitorinfo', views.query_visitor_information, name='query_visitor')
 ]

@@ -26,3 +26,8 @@ class EventManager(models.Manager):
 
     def get_history(self):
         return self._get_timeline().filter(date__lt=_get_current_date())
+
+
+class VisitorManger(models.Manager):
+    def get_latest_registration(self, email):
+        return _get_first_or_none(self.filter(email=email).order_by('-registered_at'))

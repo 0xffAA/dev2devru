@@ -120,5 +120,7 @@ class Visitor(models.Model):
         related_name='visitors'
     )
 
+    objects = VisitorManger()
+
     def __str__(self):
         return "{0} [{1}]".format(self.name, self.email)
