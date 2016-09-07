@@ -1,19 +1,25 @@
-from datetime import datetime
 from django.db import models
-from .managers import *
+from .managers import EventManager, VisitorManger
 
 
 class Place(models.Model):
     name = models.CharField(max_length=100)
     address = models.CharField(max_length=200)
-    place_latitude = models.FloatField()
-    place_longitude = models.FloatField()
-    center_latitude = models.FloatField(null=True)
-    center_longitude = models.FloatField(null=True)
-    zoom = models.IntegerField(null=True)
+    latitude = models.FloatField()
+    longitude = models.FloatField()
 
     def __str__(self):
         return "{0} [{1}]".format(self.name, self.address)
+
+
+class MapSetting(models.Model):
+    name = models.CharField(max_length=100)
+    map_center_latitude = models.FloatField(null=True)
+    map_center_longitude = models.FloatField(null=True)
+    map_zoom = models.IntegerField(null=True)
+
+    def __str__(self):
+        return self.name
 
 
 class Event(models.Model):
@@ -26,11 +32,33 @@ class Event(models.Model):
         related_name='events',
         on_delete=models.CASCADE,
     )
+    map_settings = models.ForeignKey(
+        MapSetting,
+        on_delete=models.SET_NULL,
+        null=True
+    )
 
     objects = EventManager()
 
     def __str__(self):
         return "{0} [{1}]".format(self.name, self.date)
+
+    class Meta:
+        ordering = ['date']
+
+
+class EventPublication(models.Model):
+    start_publication_date = models.DateTimeField(null=True)
+    stop_publication_date = models.DateTimeField(null=True)
+    stop_registration_date = models.DateTimeField(null=True)
+    event = models.ForeignKey(
+        Event,
+        related_name='publication',
+        on_delete=models.CASCADE,
+    )
+
+    def __str__(self):
+        return self.name
 
 
 class Section(models.Model):
@@ -59,8 +87,8 @@ class Author(models.Model):
 class Point(models.Model):
     section = models.ForeignKey(
         Section,
-        null=True,
-        on_delete=models.SET_NULL,
+        null=False,
+        on_delete=models.CASCADE,
         related_name='points'
     )
     title = models.CharField(max_length=100)
@@ -68,11 +96,6 @@ class Point(models.Model):
     start = models.TimeField()
     duration = models.DurationField()
     authors = models.ManyToManyField(Author)
-    event = models.ForeignKey(
-        Event,
-        on_delete=models.CASCADE,
-        related_name='points'
-    )
 
     def __str__(self):
         return "{0} [{1}~{2}]".format(self.title, self.start, self.duration)
