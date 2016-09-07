@@ -1,9 +1,10 @@
+from django.db.models.query import QuerySet
 from django.db import models
 import datetime
 
 
 def _get_current_date():
-    return datetime.datetime.utcnow().date()
+    return datetime.datetime.utcnow()
 
 
 def _get_first_or_none(qs):
@@ -14,18 +15,50 @@ def _get_first_or_none(qs):
         return None
 
 
+class EventQuerySet(QuerySet):
+    def published(self):
+        return self.exclude(publication__isnull=True)
+
+    def active_now(self):
+        now = _get_current_date()
+        return self.filter(
+            publication__start_publication_date__lt=now,
+            publication__stop_publication_date__gt=now,
+        )
+
+    def history(self):
+        return self.filter(
+            publication__stop_publication_date__gt=_get_current_date(),
+        )
+
+    def load_all(self):
+        return self.select_related(
+            'place',
+            'map_settings',
+        ).prefetch_related(
+            'publication',
+            'sections',
+            'sections__points',
+            'sections__points__authors',
+            'sections__points__materials',
+            'partners'
+        )
+
+
 class EventManager(models.Manager):
-    def _get_timeline(self, reverse=False):
-        return self.order_by('-date' if reverse else 'date')
+    @property
+    def _qs(self):
+        return EventQuerySet(self.model)
 
     def get_current(self):
-        return _get_first_or_none(self._get_timeline().filter(date__gte=_get_current_date()))
+        return _get_first_or_none(
+            self._qs.active_now().order_by('-date').load_all()
+        )
 
     def get_by_name(self, name):
-        return _get_first_or_none(self.filter(public_name=name))
-
-    def get_history(self):
-        return self._get_timeline().filter(date__lt=_get_current_date())
+        return _get_first_or_none(
+            self._qs.filter(public_name=name).load_all()
+        )
 
 
 class VisitorManger(models.Manager):

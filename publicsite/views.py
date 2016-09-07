@@ -4,20 +4,23 @@ from django.views.decorators.csrf import csrf_protect
 from django.shortcuts import render, redirect
 from django.http import Http404, JsonResponse, HttpResponseForbidden, HttpResponseNotFound
 from django.core.urlresolvers import reverse
-from django.views.decorators.http import require_POST
+from django.views.decorators.http import require_POST, require_GET
 
 from .models import Event, Visitor
 from .forms import NewVisitorForm
-from .view_models import EventVM
 
 
+@require_GET
 def current_event(request):
     event = Event.objects.get_current()
     if event:
         return render(
             request,
             'view_event.html',
-            {'event': EventVM(event), 'form': NewVisitorForm(initial={'event': event})}
+            {
+                'event': event,
+                'form': NewVisitorForm(initial={'event': event})
+            }
         )
     else:
         return render(
@@ -65,6 +68,7 @@ def register_new_visitor(request):
         return redirect(reverse('main'))
 
 
+@require_GET
 def view_event(request, event_name=None):
     event = Event.objects.get_by_name(event_name)
     if not event:
@@ -72,10 +76,11 @@ def view_event(request, event_name=None):
     return render(
         request,
         'view_event.html',
-        {'event': EventVM(event)}
+        {'event': event}
     )
 
 
+@require_GET
 def events_history(request):
     events = Event.objects.get_history()
     return render(
