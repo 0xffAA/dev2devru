@@ -5,7 +5,7 @@
             <div class="points-list-point-times">
                 {{ point.start|time:"H:i" }} - {{ point.end|time:"H:i" }}
             </div>
-            {% for author in point.authors %}
+            {% for author in point.authors.all %}
             <div>
             {% if author.photo%}
                 <img class="points-list-point-author-photo" alt="ooops..." src="{{ author.photo.url }}"/>

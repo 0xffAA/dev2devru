@@ -57,9 +57,6 @@ class EventPublication(models.Model):
         on_delete=models.CASCADE,
     )
 
-    def __str__(self):
-        return self.name
-
 
 class Section(models.Model):
     name = models.CharField(max_length=100)
