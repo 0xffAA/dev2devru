@@ -1,3 +1,6 @@
+import datetime
+
+import pytz
 from django.db import models
 from .managers import EventManager, VisitorManger
 
@@ -40,6 +43,11 @@ class Event(models.Model):
 
     objects = EventManager()
 
+    @property
+    def registration_enabled(self):
+        now = datetime.datetime.now(tz=pytz.UTC)
+        return self.publication.stop_registration_date > now
+
     def __str__(self):
         return "{0} [{1}]".format(self.name, self.date)
 
@@ -51,10 +59,11 @@ class EventPublication(models.Model):
     start_publication_date = models.DateTimeField(null=True)
     stop_publication_date = models.DateTimeField(null=True)
     stop_registration_date = models.DateTimeField(null=True)
-    event = models.ForeignKey(
+    event = models.OneToOneField(
         Event,
         related_name='publication',
         on_delete=models.CASCADE,
+        primary_key=True,
     )
 
 

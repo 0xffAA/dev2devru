@@ -45,7 +45,7 @@
             <a class="block-link" href="{% url 'contribute' %}">помочь</a>
         </div>
         <div class="view-ev-registration-button">
-            <a class="block-link" href="#registration">пойти</a>
+            <a class="block-link" href="#registration">пойти, уже идут {{ event.visitors_count }}</a>
         </div>
     </div>
 </section>
@@ -62,7 +62,35 @@
         {% include 'includes/points_list.html' with points=section.points.all only %}
     {% endfor %}
         <div class="view-ev-schedule-register-button">
-            <a class="block-link" href="#registration">регистрация</a>
+            <a class="block-link" href="#registration">
+            {% if event.registration_enabled %}
+                регистрация
+            {% else %}
+                регистрация закрыта
+            {% endif %}
+            </a>
+        </div>
+    </div>
+</section>
+<section id="partners">
+    <div class="view-ev-partners-header-block">
+        <h2>
+            Партнеры
+        </h2>
+    </div>
+    <div class="view-ev-partners-block">
+        <div class="view-ev-partners-list-block">
+        {% for partner in event.partners.all %}
+            <div class="view-ev-partners-partner-block">
+                <img src="{{ partner.logo.url }}">
+                <h3>
+                    {{ partner.name }}
+                </h3>
+            </div>
+        {% endfor %}
+        </div>
+        <div class="view-ev-partners-become-button">
+            стать партнёром
         </div>
     </div>
 </section>
@@ -86,9 +114,12 @@
         </div>
     </div>
 </section>
-{% if form %}
 <section>
     <div id="registration" class="anchor" style="anchor"></div>
+    {% if event.registration_enabled %}
+    <div class="view-ev-registration-header-block">
+        <h2>Уже идут {{ event.visitors.count }}, присоединяйся.</h2>
+    </div>
     <div class="view-ev-registration-block">
         <div class="view-ev-registration-column-block">
             <div class="view-ev-registration-form-block">
@@ -96,29 +127,12 @@
             </div>
         </div>
     </div>
-</section>
-{% endif %}
-<section id="partners">
-    <div class="view-ev-partners-header-block">
-        <h2>
-            Партнеры
-        </h2>
+    {% else %}
+    <div class="view-ev-registration-closed-block">
+        Регистрация закрыта.<br/>
+        Дошло {{ event.visitors_count }}. Было очень круто.
     </div>
-    <div class="view-ev-partners-block">
-        <div class="view-ev-partners-list-block">
-        {% for partner in event.partners.all %}
-            <div class="view-ev-partners-partner-block">
-                <img src="{{ partner.logo.url }}">
-                <h3>
-                    {{ partner.name }}
-                </h3>
-            </div>
-        {% endfor %}
-        </div>
-        <div class="view-ev-partners-become-button">
-            стать партнёром
-        </div>
-</div>
+    {% endif %}
 </section>
 {% endblock %}
 

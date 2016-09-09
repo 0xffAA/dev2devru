@@ -142,6 +142,10 @@ a.block-link
 
 /* register */
 
+.view-ev-registration-header-block
+    +view-event-section-header()
+
+
 .view-ev-registration-block
     width: 100%
     min-height: 400px
@@ -159,6 +163,15 @@ a.block-link
     width: 30rem
     margin 2rem 0
 
+
+.view-ev-registration-closed-block
+    +blue-colored()
+    +subheader-font($size: 3em)
+    width: 100%
+    margin: 0 auto
+    padding: 2em 0
+    text-align: center
+
 /* partners */
 
 .view-ev-partners-header-block
@@ -168,8 +181,10 @@ a.block-link
 .view-ev-partners-block
     +centr-colomn-block()
 
+
 .view-ev-partners-list-block
     text-align: center
+
 
 .view-ev-partners-partner-block
     display: inline-block
@@ -184,6 +199,7 @@ a.block-link
 
     h3
         +subheader-font($color: $color-grey-light)
+
 
 .view-ev-partners-become-button
     +button()

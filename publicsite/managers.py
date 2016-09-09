@@ -1,3 +1,4 @@
+from django.db.models import Count
 from django.db.models.query import QuerySet
 from django.db import models
 import datetime
@@ -44,6 +45,9 @@ class EventQuerySet(QuerySet):
             'partners'
         )
 
+    def with_visitors_count(self):
+        return self.annotate(visitors_count=Count('visitors'))
+
 
 class EventManager(models.Manager):
     @property
@@ -52,13 +56,16 @@ class EventManager(models.Manager):
 
     def get_current(self):
         return _get_first_or_none(
-            self._qs.active_now().order_by('-date').load_all()
+            self._qs.active_now().order_by('-date').load_all().with_visitors_count()
         )
 
     def get_by_name(self, name):
         return _get_first_or_none(
             self._qs.filter(public_name=name).load_all()
         )
+
+    def get_history(self):
+        return self._qs.history().with_visitors_count()
 
 
 class VisitorManger(models.Manager):
